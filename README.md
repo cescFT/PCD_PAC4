@@ -20,3 +20,5 @@ pel coverage:
 
 per executar el main: python -m src.main
 
+pel doc: TODO
+
