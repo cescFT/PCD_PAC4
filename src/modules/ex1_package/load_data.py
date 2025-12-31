@@ -1,0 +1,2 @@
+def patata():
+    return 'patata'
