@@ -20,5 +20,15 @@ pel coverage:
 
 per executar el main: python -m src.main
 
-pel doc: TODO
+pel doc:
+* pip install pydoctor
+* pydoctor --make-html --project-name "PCD_PAC4 - Francesc Ferré Tarrés" --html-output doc src/
+
+
+estandard PEP8:
+* pip install pylint
+* pylint src/
+* Per generar el ignore: pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
+
+
 
