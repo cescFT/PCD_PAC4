@@ -12,6 +12,7 @@ import argparse
 import warnings
 from src.modules.exercises import exercise_1
 from src.modules.exercises import exercise_2
+from src.modules.exercises import exercise_3
 
 if __name__ == '__main__':
 
@@ -42,6 +43,7 @@ if __name__ == '__main__':
     exercises = [
         exercise_1.exercise_1,
         exercise_2.exercise_2,
+        exercise_3.exercise_3
     ]
 
     if args.ex:
@@ -70,8 +72,7 @@ if __name__ == '__main__':
                 df_read = exercises[i](file_path)
             case 1:
                 merged_df = exercises[i](df_read)
-                print(merged_df)
             case 2:
-                pass
+                exercises[i](merged_df)
 
         print("Fi execució exercici " + str(i + 1) + "/" + str(limit))
