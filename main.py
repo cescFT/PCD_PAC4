@@ -13,6 +13,7 @@ import warnings
 from src.modules.exercises import exercise_1
 from src.modules.exercises import exercise_2
 from src.modules.exercises import exercise_3
+from src.modules.exercises import exercise_4
 
 if __name__ == '__main__':
 
@@ -43,11 +44,14 @@ if __name__ == '__main__':
     exercises = [
         exercise_1.exercise_1,
         exercise_2.exercise_2,
-        exercise_3.exercise_3
+        exercise_3.exercise_3,
+        exercise_4.exercise_4
     ]
 
     if args.ex:
         limit = args.ex
+        if limit <= 0 or limit > len(exercises):
+            print("Proporciona un exercici vàlid (1-4)")
     else:
         limit = len(exercises)
 
@@ -73,6 +77,8 @@ if __name__ == '__main__':
             case 1:
                 merged_df = exercises[i](df_read)
             case 2:
+                exercises[i](merged_df)
+            case 3:
                 exercises[i](merged_df)
 
         print("Fi execució exercici " + str(i + 1) + "/" + str(limit))
