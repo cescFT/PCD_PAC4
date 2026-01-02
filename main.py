@@ -9,9 +9,18 @@ Any: 2026
 import os
 import sys
 import argparse
+import warnings
 from src.modules.exercises import exercise_1
+from src.modules.exercises import exercise_2
 
 if __name__ == '__main__':
+
+    warnings.filterwarnings(
+        "ignore",
+        message="Cannot parse header or footer",
+        category=UserWarning
+    )
+
     parser = argparse.ArgumentParser(
         description="Execució dels exercicis de la PAC"
     )
@@ -31,7 +40,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     exercises = [
-        exercise_1.exercise_1
+        exercise_1.exercise_1,
+        exercise_2.exercise_2,
     ]
 
     if args.ex:
@@ -55,5 +65,13 @@ if __name__ == '__main__':
 
     for i in range(limit):
         print("Exercici " + str(i + 1) + "/" + str(limit))
-        exercises[i](file_path)
+        match i:
+            case 0:
+                df_read = exercises[i](file_path)
+            case 1:
+                merged_df = exercises[i](df_read)
+                print(merged_df)
+            case 2:
+                pass
+
         print("Fi execució exercici " + str(i + 1) + "/" + str(limit))

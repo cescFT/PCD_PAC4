@@ -45,6 +45,9 @@ def read_file(file_path: str = "") -> pd.DataFrame:
 
             try:
                 file_to_read = int(file_to_read)
+                if file_to_read > 2:
+                    print("Proporciona un valor vàlid (1, 2)")
+                    continue
                 file_to_read_is_valid = True
             except ValueError:
                 print("Proporciona un valor vàlid (1, 2)")
@@ -52,4 +55,5 @@ def read_file(file_path: str = "") -> pd.DataFrame:
         file_path = valid_files[file_to_read]["path"]
 
     df = pd.read_excel(file_path)
+    df.source_file = file_path
     return df

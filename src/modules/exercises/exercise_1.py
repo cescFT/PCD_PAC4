@@ -13,7 +13,7 @@ import pandas as pd
 from src.modules.utils.read_file import read_file
 from src.modules.utils.explore_dataframe import explore_dataframe
 
-def exercise_1(file_path: str = "") -> pd.DataFrame:
+def exercise_1(file_path: str = "") -> dict:
     """
     Executa l'exercici 1.
 
