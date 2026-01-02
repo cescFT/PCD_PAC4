@@ -6,10 +6,10 @@ Assignatura: Programació per a la Ciència de Dades
 Any: 2026
 """
 
-
+import os
+import sys
 import argparse
-import src.modules.ex1_package.load_data as load_data
-
+from src.modules.exercises import exercise_1
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -22,12 +22,38 @@ if __name__ == '__main__':
         help="Executa els exercicis des del 1 fins al número indicat"
     )
 
+    parser.add_argument(
+        "-file",
+        type=str,
+        help="Llegeix el fitxer que se li passi per paràmetre. Per exemple: data/rendiment_estudiants.xlsx"
+    )
+
     args = parser.parse_args()
 
-    if args.ex is None:
-        print(load_data.patata())
-    else:
+    exercises = [
+        exercise_1.exercise_1
+    ]
+
+    if args.ex:
         limit = args.ex
-        print(limit)
+    else:
+        limit = len(exercises)
 
+    file_path = ""
+    if args.file:
+        file_path = args.file
 
+        try:
+            file_path = str(file_path)
+        except TypeError as t:
+            print("Proporciona un string. Per exemple: data/rendiment_estudiants.xlsx. Error:" + str(t))
+            sys.exit(1)
+
+        if not os.path.isfile(file_path) or not os.path.exists(file_path):
+            print("Proporciona un path vàlid que sigui un fitxer i que existeixi")
+            sys.exit(1)
+
+    for i in range(limit):
+        print("Exercici " + str(i + 1) + "/" + str(limit))
+        exercises[i](file_path)
+        print("Fi execució exercici " + str(i + 1) + "/" + str(limit))
