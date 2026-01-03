@@ -4,7 +4,7 @@ Francesc Ferré Tarrés
 
 Màster Universitari en Ciències de Dades
 
-WIP
+# Com executar el projecte?
 
 primer cop per crear l'entorn virtual:
 * virtualenv venv
@@ -14,6 +14,9 @@ per accedir a l'entorn:
 
 per desactivar l'entorn:
 * deactivate
+
+# Estructures de les carpetes
+
 
 per executar tests:
 * python -m tests.suite
@@ -37,4 +40,4 @@ estandard PEP8:
 * Per generar el ignore: pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
 
 
-
+Setup.py? https://www.youtube.com/watch?v=GaWs-LenLYE
