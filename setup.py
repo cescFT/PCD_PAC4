@@ -12,7 +12,8 @@ setup(
     install_requires=[
         "pandas",
         "matplotlib",
-        "scipy"
+        "scipy",
+        "openpyxl"
     ],
     entry_points={
         "console_scripts": [
