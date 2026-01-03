@@ -10,10 +10,10 @@ import os
 import sys
 import argparse
 import warnings
-from src.modules.exercises import exercise_1
-from src.modules.exercises import exercise_2
-from src.modules.exercises import exercise_3
-from src.modules.exercises import exercise_4
+from src.modules.exercises.exercise_1 import exercise_1
+from src.modules.exercises.exercise_2 import exercise_2
+from src.modules.exercises.exercise_3 import exercise_3
+from src.modules.exercises.exercise_4 import exercise_4
 
 if __name__ == '__main__':
 
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     )
 
     parser = argparse.ArgumentParser(
-        description="Execució dels exercicis de la PAC"
+        description="Execució dels exercicis de la PAC 4 de l'assignatura de Programació per a la Ciència de Dades."
     )
 
     parser.add_argument(
@@ -48,10 +48,11 @@ if __name__ == '__main__':
         exercise_4.exercise_4
     ]
 
-    if args.ex:
+    if args.ex is not None:
         limit = args.ex
         if limit <= 0 or limit > len(exercises):
-            print("Proporciona un exercici vàlid (1-4)")
+            print("Proporciona un exercici vàlid (1-4).")
+            sys.exit(1)
     else:
         limit = len(exercises)
 
@@ -82,3 +83,5 @@ if __name__ == '__main__':
                 exercises[i](merged_df)
 
         print("Fi execució exercici " + str(i + 1) + "/" + str(limit))
+
+    print("Final d'execució.")

@@ -1,3 +1,9 @@
+# Pràctica d'Evaluació Contínua 4: Programació per a la ciència de dades
+
+Francesc Ferré Tarrés
+
+Màster Universitari en Ciències de Dades
+
 WIP
 
 primer cop per crear l'entorn virtual:
