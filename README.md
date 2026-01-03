@@ -4,7 +4,9 @@ Francesc Ferré Tarrés
 
 Màster Universitari en Ciències de Dades
 
-# Com executar el projecte?
+# Estructures de les carpetes
+
+# Desenvolupament del projecte
 
 primer cop per crear l'entorn virtual:
 * virtualenv venv
@@ -12,10 +14,23 @@ primer cop per crear l'entorn virtual:
 per accedir a l'entorn:
 * .\venv\Scripts\activate.ps1
 
+instal·lar requeriments: pip install -r requirements.txt
+
 per desactivar l'entorn:
 * deactivate
 
-# Estructures de les carpetes
+per executar: python -m src.execution.main
+
+
+## Execució dels tests en l'entorn virtual
+
+
+## Càlcul del coverage
+
+## Generar documentació en HTML a partir del docstring
+
+## Revisar que es compleix PEP8
+
 
 
 per executar tests:
@@ -39,5 +54,12 @@ estandard PEP8:
 * pylint src/
 * Per generar el ignore: pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
 
+# Exportar projecte usant setup.py
 
-Setup.py? https://www.youtube.com/watch?v=GaWs-LenLYE
+a l'arrel del projecte: pip install .
+
+generara un executable PCD_PAC4-cli, el qual es pot executar per terminal.
+
+(revisar a l'enunciat si falta alguna cosa més a documentar)
+
+TODOs: Afegir referencies al codi :)

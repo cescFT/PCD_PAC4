@@ -1,3 +1,5 @@
 .idea/
 .coverage
 src/img/
+PCD_PAC4.egg-info
+build
