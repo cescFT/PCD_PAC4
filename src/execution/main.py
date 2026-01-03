@@ -15,8 +15,7 @@ from src.modules.exercises.exercise_2 import exercise_2
 from src.modules.exercises.exercise_3 import exercise_3
 from src.modules.exercises.exercise_4 import exercise_4
 
-if __name__ == '__main__':
-
+def main():
     warnings.filterwarnings(
         "ignore",
         message="Cannot parse header or footer",
@@ -85,3 +84,6 @@ if __name__ == '__main__':
         print("Fi execució exercici " + str(i + 1) + "/" + str(limit))
 
     print("Final d'execució.")
+
+if __name__ == '__main__':
+    main()
