@@ -1,16 +1,24 @@
 """
-
+Mòdul auxiliar que permet ajuntar dataframes
 """
+
+# Referències:
+# * Teoria
+# * https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html
 
 import pandas as pd
 
 def merge_dataframes(df_1: pd.DataFrame, df_2: pd.DataFrame, merge_columns: list) -> pd.DataFrame:
     """
+    Funció que permet ajuntar dataframes per les columnes que se li passen per paràmetre.
+    
+    Args:
+        df_1 (pd.Dataframe): dataframe 1.
+        df_2 (pd.Dataframe): dataframe 2.
+        merge_columns: Llista de columnes sobre les quals es col fer merge.
 
-    :param df_1:
-    :param df_2:
-    :param merge_columns:
-    :return:
+    Returns:
+        pd.DataFrame: dataframe unit.
     """
 
     df_merged = pd.merge(

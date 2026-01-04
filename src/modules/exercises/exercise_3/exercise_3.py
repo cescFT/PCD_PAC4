@@ -1,6 +1,12 @@
 """
-
+Mòdul que conté el codi de l'exercici 3.
 """
+
+# Referències:
+# * Teoria
+# * https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html
+# * https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -9,12 +15,21 @@ from src.modules.exercises.exercise_3.subplot_create import create_subplot_with_
 
 def exercise_3(df_grouped: pd.DataFrame) -> None:
     """
-    
+    Funció que dona resposta a l'exercici 3. Genera els subplots i tot el que es demana en l'exercici.
+
+    Args:
+        df_grouped (pd.DataFrame): dataframe agrupat.
+
+    Returns:
+        None.
     """
 
+    # Generem el plot amb dos subplots.
     fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(14, 10), sharex=True)
     study_type = sorted(df_grouped['Branca'].unique())
 
+    # Creem el primer gràfic per a mostrar el percentatge d'abandonament mitjà en el primer curs per curs acadèmic
+    # i branca d'estudi.
     ax1 = axes[0]
     result = create_subplot_with_specific_data(
         ax1,

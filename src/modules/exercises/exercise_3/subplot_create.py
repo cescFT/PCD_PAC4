@@ -1,6 +1,10 @@
 """
-
+Mòdul auxiliar de l'exercici 3 el qual permet crear subplots.
 """
+
+# Referències:
+# * https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html
+# * https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.grid.html
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -15,7 +19,10 @@ def create_subplot_with_specific_data(
         x_label: str = ""
 ) -> dict:
     """
+    Funció que permet crear un subplot a través dels paràmetres necessaris per a dur-ho a terme.
 
+    Args:
+        axes (plt.Axes): <- Per aqui.
     """
 
     all_lines = []

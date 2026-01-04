@@ -2,6 +2,9 @@
 Mòdul auxiliar de l'exercici 1 que permet l'exploració del DataFrame.
 """
 
+# Referències:
+# * Teoria
+
 import pandas as pd
 
 def explore_dataframe(df: pd.DataFrame) -> None:
