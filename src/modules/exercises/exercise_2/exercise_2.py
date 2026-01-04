@@ -1,5 +1,11 @@
 """
+Mòdul que conté la funció que executa l'exercici 2.
 
+L'exercici consisteix en:
+
+1. Reanomenar les columnes del dataset taxa_abandonament.xlsx perquè coincideixi amb el dataset rediment_estudiants.xlsx
+2. Eliminació de les columnes "Universitat" i "Unitat" dels dos dataframes i "Crèdits ordinaris superats" i "Crèdits ordinaris matriculats" en el cas del dataset de rendiment.
+3. Cr
 """
 
 import pandas as pd

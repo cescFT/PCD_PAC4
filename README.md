@@ -99,6 +99,12 @@ python3 -m tests.exercise_<x>.suite_ex<x>
 
 *Nota: Substituïu `<x>` per un número d'exercici vàlid (1-4)*
 
+Per al cas del test del main:
+
+```shell
+python3 -m tests.execution.suite_main
+```
+
 ## Càlcul del *Coverage* del codi
 
 Per tal de calcular el *coverage* del codi, necessitem estar en l'entorn virtual `<nom_entorn_virtual>` el qual ja té
@@ -117,6 +123,13 @@ coverage report
 ```
 
 *Nota: Subtituïu `<x>` pel número d'exercici vàlid que volgueu saber el coverage*
+
+Per al cas del main:
+
+```shell
+coverage run -m tests.execution.suite_main
+coverage report
+```
 
 ## Generar documentació en HTML a partir del *docstring*
 
@@ -178,6 +191,7 @@ admet els arguments `-h` i `-ex <num_ex>` anteriorment descrits.
 
 
 TODOs:
+* Revisar que tots els string tinguin cometes dobles "" i no ''
 * Afegir referencies al codi 
 * Esperar que els dubtes estiguin resolts :)
 * Documentar les funcions + params entrada i sortida
