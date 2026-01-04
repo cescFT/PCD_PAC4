@@ -27,8 +27,6 @@ def exercise_3(df_grouped: pd.DataFrame) -> None:
     all_lines = result['all_lines']
     all_labels = result['all_labels']
 
-
-    # --- Gràfic 2: Taxa de Rendiment ---
     ax2 = axes[1]
     create_subplot_with_specific_data(
         ax2,
