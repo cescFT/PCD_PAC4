@@ -191,8 +191,8 @@ admet els arguments `-h` i `-ex <num_ex>` anteriorment descrits.
 
 
 TODOs:
-* Revisar que tots els string tinguin cometes dobles "" i no ''
+* Revisar que al README estigui tot ok
 * Afegir referencies al codi 
-* Esperar que els dubtes estiguin resolts :)
+* Validar resultats
 * Documentar les funcions + params entrada i sortida
 * Fer tests + coverage + pep8 i captures de pantalla
