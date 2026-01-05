@@ -9,7 +9,6 @@ L'exercici consisteix en:
 3. Exploració del DataFrame mostrant informació bàsica.
 """
 
-import pandas as pd
 from src.modules.exercises.exercise_1.read_file import read_file
 from src.modules.exercises.exercise_1.explore_dataframe import explore_dataframe
 

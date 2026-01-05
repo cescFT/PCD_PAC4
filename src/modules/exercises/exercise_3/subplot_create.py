@@ -37,7 +37,7 @@ def create_subplot_with_specific_data(
 
     all_lines = []
     all_labels = []
-    colors = plt.cm.tab10.colors
+    colors = plt.get_cmap("tab10").colors
 
     # Per a tots els tipus d'estudi, agafem les dades de la branca d'estudi, les agrupem i les pintem en el gràfic
     # amb un color específic per cada tipus d'estudi, on cada punt apareix amb una rodona i amb un gruix de 2 per la

@@ -3,11 +3,12 @@ Mòdul que conté la funció que executa l'exercici 2.
 
 L'exercici consisteix en:
 
-1. Reanomenar les columnes del dataset taxa_abandonament.xlsx perquè coincideixi amb el dataset rediment_estudiants.xlsx
-2. Eliminació de les columnes "Universitat" i "Unitat" dels dos dataframes i "Crèdits ordinaris superats" i
- "Crèdits ordinaris matriculats" en el cas del dataset de rendiment.
-3. Crear i aplicat als datasets una funció per a agrupar totes les files que comparteixen les mateixes característiques,
-i una columna que tigui el rendiment mitjà i la taxa mitjana.
+1. Reanomenar les columnes del dataset taxa_abandonament.xlsx perquè coincideixi amb el dataset
+ rediment_estudiants.xlsx
+2. Eliminació de les columnes "Universitat" i "Unitat" dels dos dataframes i
+ "Crèdits ordinaris superats" i "Crèdits ordinaris matriculats" en el cas del dataset de rendiment.
+3. Crear i aplicat als datasets una funció per a agrupar totes les files que comparteixen
+ les mateixes característiques, i una columna que tigui el rendiment mitjà i la taxa mitjana.
 4. Creació d'una funció per per tal de fusionar ambdos datasets.
 """
 
@@ -86,4 +87,3 @@ def exercise_2(df: pd.DataFrame) -> pd.DataFrame:
     print(df_merged)
 
     return df_merged
-

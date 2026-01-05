@@ -3,12 +3,13 @@ Mòdul auxiliar de l'exercici 4 el qual implementa la funció analyze_dataset i 
 analitzar el dataframe.
 """
 
-import os
 import json
-import pandas as pd
+import os
 from datetime import datetime
-from scipy.stats import pearsonr
-from scipy.stats import linregress
+
+import pandas as pd
+from scipy.stats import linregress, pearsonr
+
 
 def analyze_dataset(merged_df: pd.DataFrame) -> dict:
     """
@@ -142,7 +143,7 @@ def calculate_tendency_of_specific_branch(branch_data: pd.DataFrame, column_to_t
 
     years = branch_by_year_abandonment["Curs Acadèmic"].tolist()
     values_abandonment = branch_by_year_abandonment[column_to_treat].tolist()
-    slope, intercept, r_value, p_value, std_err = linregress(
+    slope, _, _, _, _ = linregress(
         range(len(years)),
         values_abandonment
     )
@@ -166,7 +167,7 @@ def calculate_global_stats(merged_df: pd.DataFrame) -> dict:
         dict: Diccionari amb les dades globals que es demanen en l'enunciat de la pràctica.
     """
 
-    corr, p_value = pearsonr(
+    corr, _ = pearsonr(
         merged_df["% Abandonament a primer curs"],
         merged_df["Taxa rendiment"]
     )
@@ -209,7 +210,7 @@ def save_statistics(json_data: dict, path: str) -> None:
     """
 
     os.makedirs("src/report", exist_ok=True)
-    with open(path, "w") as json_file:
+    with open(path, "w", encoding="utf-8") as json_file:
         json.dump(json_data, json_file)
 
-    print("Fitxer {} desat correctament.".format(path))
+    print(f"Fitxer {path} desat correctament.")
