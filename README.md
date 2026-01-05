@@ -143,7 +143,7 @@ pip install pydoctor
 Llavors per a generar la documentació, l'he fet amb aquesta comanda:
 
 ```shell
-pydoctor --make-html --project-name "PCD_PAC4 - Francesc Ferré Tarrés" --html-output doc src/
+pydoctor --make-html --project-name "PCD_PAC4 - Francesc Ferré Tarrés" --html-output doc src tests
 ```
 
 Llavors, de forma automàtica agafa tots els *docstrings* i els traspassa en varis HTML. Si es vol visualitzar, accedim a

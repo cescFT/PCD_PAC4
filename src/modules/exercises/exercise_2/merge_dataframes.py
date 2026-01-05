@@ -15,7 +15,7 @@ def merge_dataframes(df_1: pd.DataFrame, df_2: pd.DataFrame, merge_columns: list
     Args:
         df_1 (pd.Dataframe): dataframe 1.
         df_2 (pd.Dataframe): dataframe 2.
-        merge_columns: Llista de columnes sobre les quals es col fer merge.
+        merge_columns (list): Llista de columnes sobre les quals es col fer merge.
 
     Returns:
         pd.DataFrame: dataframe unit.

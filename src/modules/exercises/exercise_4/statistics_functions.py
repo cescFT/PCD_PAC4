@@ -1,5 +1,6 @@
 """
-
+Mòdul auxiliar de l'exercici 4 el qual implementa la funció analyze_dataset i funcions auxiliars per a poder
+analitzar el dataframe.
 """
 
 import os
@@ -11,22 +12,30 @@ from scipy.stats import linregress
 
 def analyze_dataset(merged_df: pd.DataFrame) -> dict:
     """
+    Funció principal d'anàlisi del dataframe, el qual retorna un diccionari per a poder ser desat.
 
-    :param merged_df:
-    :return:
+    Args:
+        merged_df (pd.DataFrame): Dataframe a analitzat.
+
+    Returns:
+        dict: Retorna el diccionari preparat per a ser desat en format JSON.
     """
 
     json_data = {}
 
+    # Calculem les metadades del JSON a desar
     json_data["metadata"] = calculate_metadata(
         len(merged_df),
         sorted(merged_df["Curs Acadèmic"].unique().tolist()),
     )
 
+    # Calculem les estadístiques globals
     json_data["estadisticas_globales"] = calculate_global_stats(merged_df)
 
+    # Calculem les estadístiques per cada branca d'estudi
     json_data["analisis_por_rama"] = calculate_statistics_per_branch(merged_df)
 
+    # Calculem el ranquing per saber qui té més o menys taxa de rendiment i percentatge d'abandonament
     json_data["ranking_ramas"] = calculate_ranking_by_branch(merged_df)
 
     return json_data
@@ -34,18 +43,22 @@ def analyze_dataset(merged_df: pd.DataFrame) -> dict:
 
 def calculate_ranking_by_branch(merged_df: pd.DataFrame) -> dict:
     """
+    Funció que calcula el rànquing de les branques d'estudi amb una taxa de rendiment més alta / baixa, juntament
+    amb el percentatge d'abandonament més alt i més baix a primer curs.
 
-    :param merged_df:
-    :return:
+    Args:
+        merged_df (pd.DataFrame): Dataframe a analitzar.
+
+    Returns:
+        dict: Diccionari amb el resultat del rànquing, calculat ordenant el paràmetre d'entrada en funció de la
+        taxa de rendiment o el percentatge d'abandonament a primer curs.
     """
 
     df_ordered_by_tax = merged_df.sort_values(by=["Taxa rendiment"], ascending=False)
-    print(df_ordered_by_tax)
     best_performance_tax = df_ordered_by_tax["Branca"].iloc[0]
     worst_performance_tax = df_ordered_by_tax["Branca"].iloc[-1]
 
     df_ordered_by_abandonment = merged_df.sort_values(by=["% Abandonament a primer curs"], ascending=False)
-    print(df_ordered_by_abandonment)
     best_abandonment = df_ordered_by_abandonment["Branca"].iloc[0]
     wort_abandonment = df_ordered_by_abandonment["Branca"].iloc[-1]
 
@@ -61,9 +74,13 @@ def calculate_ranking_by_branch(merged_df: pd.DataFrame) -> dict:
 
 def calculate_statistics_per_branch(merged_df: pd.DataFrame) -> dict:
     """
+    Funció que calcula les estadístiques per branca que es demanen en l'enunciat de la pràctica.
 
-    :param merged_df:
-    :return:
+    Args:
+        merged_df (pd.DataFrame): Dataframe a analitzar.
+
+    Returns:
+        dict: Diccionari amb el resultat de les dades per cada branca d'estudi.
     """
 
     json_statistics_per_branch = {}
@@ -80,7 +97,6 @@ def calculate_statistics_per_branch(merged_df: pd.DataFrame) -> dict:
         min_tax_performance = round(float(branch_data["Taxa rendiment"].min()), 2)
         max_tax_performance = round(float(branch_data["Taxa rendiment"].max()), 2)
 
-        print(type(branch_data))
         tendency_abandonment = calculate_tendency_of_specific_branch(
             branch_data,
             "% Abandonament a primer curs"
@@ -109,10 +125,15 @@ def calculate_statistics_per_branch(merged_df: pd.DataFrame) -> dict:
 
 def calculate_tendency_of_specific_branch(branch_data: pd.DataFrame, column_to_treat: str) -> str:
     """
+    Funció auxiliar que és cridada per totes les branques d'estudi la qual permet conèixer la tendència de cada branca.
 
-    :param branch_data:
-    :param column_to_treat:
-    :return:
+    Args:
+        branch_data (pd.DataFrame): Dataframe amb les dades que tenen a veure amb la branca d'estudi específica
+                                    a analitzar
+        column_to_treat (str): Columna del dataframe a ser revisada.
+
+    Returns:
+        str: Retorna la tendència de cada branca de estudi en funció del resultat del slope de la regressió lineal.
     """
 
     branch_by_year_abandonment = branch_data.groupby("Curs Acadèmic").agg({
@@ -126,19 +147,23 @@ def calculate_tendency_of_specific_branch(branch_data: pd.DataFrame, column_to_t
         values_abandonment
     )
 
-    tendency_abandonment = "estable"
+    tendency = "estable"
     if slope < -0.01:
-        tendency_abandonment = "decreixent"
+        tendency = "decreixent"
     elif slope > 0.01:
-        tendency_abandonment = "creixent"
+        tendency = "creixent"
 
-    return tendency_abandonment
+    return tendency
 
-def calculate_global_stats(merged_df: pd.DataFrame):
+def calculate_global_stats(merged_df: pd.DataFrame) -> dict:
     """
+    Funció que calcula les estadístiques globals del dataframe a analitzar.
 
-    :param merged_df:
-    :return:
+    Args:
+        merged_df (pd.DataFrame): Dataframe a analitzar.
+
+    Returns:
+        dict: Diccionari amb les dades globals que es demanen en l'enunciat de la pràctica.
     """
 
     corr, p_value = pearsonr(
@@ -155,10 +180,14 @@ def calculate_global_stats(merged_df: pd.DataFrame):
 
 def calculate_metadata(n_elems: int, temporal_period: list) -> dict:
     """
+    Funció que calcula les metadades de l'anàlisi del dataframe a analitzar.
 
-    :param n_elems:
-    :param temporal_period:
-    :return:
+    Args:
+        n_elems (int): Nombre de files del dataframe a analitzar.
+        temporal_period (list): Cursos disponibles en el dataframe a analitzar.
+
+    Returns:
+        dict: Diccionari amb les dades que es demanen en l'enunciat de la pràctica per a les metadades.
     """
 
     return {
@@ -169,10 +198,14 @@ def calculate_metadata(n_elems: int, temporal_period: list) -> dict:
 
 def save_statistics(json_data: dict, path: str) -> None:
     """
+    Funció que desa les dades del report al path que se li passi per paràmetre.
 
-    :param json_data:
-    :param path:
-    :return:
+    Args:
+        json_data (dict): Diccionari amb les dades del JSON amb les estadístiques a desar.
+        path (str): Path complert on es desarà el JSON.
+
+    Returns:
+        None.
     """
 
     os.makedirs("src/report", exist_ok=True)
