@@ -1,4 +1,7 @@
 """
+Mòdul que conté el codi de l'exercici 4.
+
+En aquest exercici ens demanen crear una
 
 """
 

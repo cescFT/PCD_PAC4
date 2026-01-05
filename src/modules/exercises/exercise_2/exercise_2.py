@@ -40,17 +40,17 @@ def exercise_2(df: pd.DataFrame) -> pd.DataFrame:
     # Renombrar les columnes d'acord amb el que s'estableix a l'enunciat
     old_columns = df_abandonment_tax.columns.tolist()
     new_columns = [
-        'Curs Acadèmic',
-        'Tipus universitat',
-        'Universitat',
-        'Sigles',
-        'Unitat',
-        'Tipus Estudi',
-        'Branca',
-        'Estudi',
-        'Sexe',
-        'Integrat S/N',
-        '% Abandonament a primer curs'
+        "Curs Acadèmic",
+        "Tipus universitat",
+        "Universitat",
+        "Sigles",
+        "Unitat",
+        "Tipus Estudi",
+        "Branca",
+        "Estudi",
+        "Sexe",
+        "Integrat S/N",
+        "% Abandonament a primer curs"
     ]
 
     df_abandonment_tax = rename_columns(
@@ -60,11 +60,11 @@ def exercise_2(df: pd.DataFrame) -> pd.DataFrame:
     )
 
     # Eliminació de les columnes, d'acord amb l'enunciat.
-    cols_to_delete = ['Universitat', 'Unitat']
+    cols_to_delete = ["Universitat", "Unitat"]
     df_abandonment_tax = delete_columns(df_abandonment_tax, cols_to_delete)
 
-    cols_to_delete.append('Crèdits ordinaris superats')
-    cols_to_delete.append('Crèdits ordinaris matriculats')
+    cols_to_delete.append("Crèdits ordinaris superats")
+    cols_to_delete.append("Crèdits ordinaris matriculats")
     df_performance_students = delete_columns(df_performance_students, cols_to_delete)
 
     cols = []
@@ -75,10 +75,15 @@ def exercise_2(df: pd.DataFrame) -> pd.DataFrame:
         if col in df_performance_students.columns:
             cols.append(col)
 
-    # Agrupació dels dataframes d'acord amb l'enunciat de la teoria
-    df_grouped_abandonment = group_dataframe(df_abandonment_tax, cols, '% Abandonament a primer curs')
-    df_grouped_performance = group_dataframe(df_performance_students, cols, 'Taxa rendiment')
+    # Agrupació dels dataframes d'acord amb l'enunciat de la pràctica
+    df_grouped_abandonment = group_dataframe(df_abandonment_tax, cols, "% Abandonament a primer curs")
+    df_grouped_performance = group_dataframe(df_performance_students, cols, "Taxa rendiment")
 
-    # Retornem el dataframe ajuntat d'acord amb l'enunciat de la teoria
-    return merge_dataframes(df_grouped_abandonment, df_grouped_performance, cols)
+    # Retornem el dataframe ajuntat d'acord amb l'enunciat de la pràctica
+    df_merged = merge_dataframes(df_grouped_abandonment, df_grouped_performance, cols)
+
+    print("Dataframe merged després de tractar les columnes d'acord amb l'enunciat\n")
+    print(df_merged)
+
+    return df_merged
 

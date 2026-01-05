@@ -1,5 +1,13 @@
 """
 Mòdul que conté el codi de l'exercici 3.
+
+Aquest exercici el que demana és generar un gràfic amb dos subplots:
+
+1. Evolució del % d'Abandonament per curs acadèmic.
+2. Evolució de la Taxa de Rendiment per curs acadèmic.
+
+Finalment, es desa en el directori corresponent i amb la configuració que es descriu
+en l'enunciat.
 """
 
 # Referències:
@@ -26,7 +34,7 @@ def exercise_3(df_grouped: pd.DataFrame) -> None:
 
     # Generem el plot amb dos subplots.
     fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(14, 10), sharex=True)
-    study_type = sorted(df_grouped['Branca'].unique())
+    study_type = sorted(df_grouped["Branca"].unique())
 
     # Creem el primer gràfic per a mostrar el percentatge d'abandonament mitjà en el primer curs per curs acadèmic
     # i branca d'estudi.
@@ -34,29 +42,33 @@ def exercise_3(df_grouped: pd.DataFrame) -> None:
     result = create_subplot_with_specific_data(
         ax1,
         df_grouped,
-        '% Abandonament a primer curs',
+        "% Abandonament a primer curs",
         study_type,
         "Evolució del % d'Abandonament mitjà per curs acadèmic i branca",
         "% Abandonament mitjà"
     )
-    all_lines = result['all_lines']
-    all_labels = result['all_labels']
+    all_lines = result["all_lines"]
+    all_labels = result["all_labels"]
 
+    # Creem el segon gràfic per a mostrar la taxa de rendiment mitjà per curs acadèmic i branca d'estudi.
     ax2 = axes[1]
     create_subplot_with_specific_data(
         ax2,
         df_grouped,
-        'Taxa rendiment',
+        "Taxa rendiment",
         study_type,
         "Evolució de la Taxa de Rendiment mitjà per curs acadèmic",
         "Taxa rendiment mitjà",
         "Curs Acadèmic"
     )
 
-    plt.setp(ax2.get_xticklabels(), rotation=45, ha='right')
+    # Configuració per a rotar les etiquetes de l'eix X, és a dir, les del curs academic.
+    plt.setp(ax2.get_xticklabels(), rotation=45, ha="right")
 
+    # Preparació del layout
     fig.tight_layout(rect=[0, 0.03, 1, 0.92]) 
-    
+
+    # Pintar una única llegenda per a tots dos subplots.
     fig.legend(
         all_lines, 
         all_labels, 
@@ -67,9 +79,10 @@ def exercise_3(df_grouped: pd.DataFrame) -> None:
         fontsize=10
     )
 
-    os.makedirs('src/img/', exist_ok=True)
-    output_file = 'src/img/evolucio_francesc_ferre_tarres.png'
+    # Desar el gràfic en la carpeta destí i amb el nom que es comenta en l'enunciat de la pràctica.
+    os.makedirs("src/img/", exist_ok=True)
+    output_file = "src/img/evolucio_francesc_ferre_tarres.png"
     
     plt.savefig(output_file, dpi=300, bbox_inches='tight')
 
-    print('Figura desada correctament a: {}'.format(output_file))
+    print("Figura desada correctament a: {}".format(output_file))

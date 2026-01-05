@@ -4,6 +4,7 @@ Mòdul auxiliar de l'exercici 2 per tractar les columnes del dataframe.
 
 # Referències
 # * Teoria
+# * https://www.w3schools.com/python/ref_func_zip.asp
 
 import pandas as pd
 
