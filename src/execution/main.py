@@ -79,9 +79,10 @@ def main() -> None:
 
 
     # Part del codi on es revisa si se li passa el fitxer com a argument -file.
-    # En cas de passar-li el fitxer, es revisa que sigui un string i que el path passat sigui vàlid, és a dir,
-    # que sigui un fitxer i que existexi. Si no existeix el fitxer o no és vàlid, pintem per pantalla un missatge
-    # i acabem l'execució del programa amb un 1, indicant que el programa no ha acabat bé.
+    # En cas de passar-li el fitxer, es revisa que sigui un string i que el path passat
+    # sigui vàlid, és a dir, que sigui un fitxer i que existexi. Si no existeix el fitxer
+    # o no és vàlid, pintem per pantalla un missatge i acabem l'execució del programa amb un 1,
+    # indicant que el programa no ha acabat bé.
     # Referència: https://stackoverflow.com/questions/9426045/difference-between-exit0-and-exit1-in-python
     file_path = ""
     if args.file is not None:
@@ -90,15 +91,19 @@ def main() -> None:
         try:
             file_path = str(file_path)
         except TypeError as t:
-            print("Proporciona un string. Per exemple: data/rendiment_estudiants.xlsx. Error:" + str(t))
+            print(
+                "Proporciona un string."
+                " Per exemple: data/rendiment_estudiants.xlsx. Error:" + str(t)
+            )
             sys.exit(1)
 
         if not os.path.isfile(file_path) or not os.path.exists(file_path):
             print("Proporciona un path vàlid que sigui un fitxer i que existeixi")
             sys.exit(1)
 
-    # Si tot va bé i arribem en aquest punt, executem els exercicis per ordre, atès que són incrementals,
-    # perquè el 2n exercici espera el resultat del 1r, i així.
+    # Si tot va bé i arribem en aquest punt, executem els exercicis per ordre,
+    # atès que són incrementals, perquè el 2n exercici espera el
+    # resultat del 1r, i així.
     for i in range(limit):
         print("Exercici " + str(i + 1) + "/" + str(limit))
         match i:

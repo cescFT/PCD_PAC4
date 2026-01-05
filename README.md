@@ -196,3 +196,4 @@ TODOs:
 * Validar resultats
 * Documentar les funcions + params entrada i sortida
 * Fer tests + coverage + pep8 i captures de pantalla
+* Passar les referencies al README
