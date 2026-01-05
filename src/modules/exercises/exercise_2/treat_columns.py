@@ -13,9 +13,9 @@ def rename_columns(df: pd.DataFrame, old_columns: list, new_columns: list) -> pd
     Funció que permet renombrar les columnes antigues per columnes noves.
 
     Args:
-        df: dataframe que es vol reanomenar les columnes
-        old_columns: Llista de les columnes velles
-        new_columns: Llista de les columnes noves
+        df (pd.DataFrame): dataframe que es vol reanomenar les columnes
+        old_columns (list): Llista de les columnes velles
+        new_columns (list): Llista de les columnes noves
 
     Returns:
         pd.DataFrame: Dataframe amb les columnes noves.
@@ -31,8 +31,8 @@ def delete_columns(df: pd.DataFrame, columns_to_delete: list) -> pd.DataFrame:
     Funció que permet eliminar les columnes del dataframe.
 
     Args:
-        df: dataframe que es vol eliminar les columnes
-        columns_to_delete: Llista de columnes a eliminar
+        df (pd.DataFrame): dataframe que es vol eliminar les columnes
+        columns_to_delete (list): Llista de columnes a eliminar
 
     Returns:
         pd.DataFrame: Dataframe amb les columnes eliminades.

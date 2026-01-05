@@ -181,6 +181,16 @@
         
 
         
+            <div class="itemName"><code><a href="#calculate_tendency_of_specific_branch" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions.calculate_tendency_of_specific_branch">calculate<wbr></wbr>_tendency<wbr></wbr>_of<wbr></wbr>_specific<wbr></wbr>_branch</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#save_statistics" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions.save_statistics">save<wbr></wbr>_statistics</a></code>
             </div>
         
@@ -268,7 +278,7 @@
         
 
         <div class="page-header">
-          <h1 class="module"><code><code><a href="index.html" class="internal-link">src</a></code><wbr></wbr>.<code><a href="src.modules.html" class="internal-link" title="src.modules">modules</a></code><wbr></wbr>.<code><a href="src.modules.exercises.html" class="internal-link" title="src.modules.exercises">exercises</a></code><wbr></wbr>.<code><a href="src.modules.exercises.exercise_4.html" class="internal-link" title="src.modules.exercises.exercise_4">exercise_4</a></code><wbr></wbr>.<code><a href="src.modules.exercises.exercise_4.statistics_functions.html" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions">statistics_functions</a></code></code></h1>
+          <h1 class="module"><code><code><a href="src.html" class="internal-link">src</a></code><wbr></wbr>.<code><a href="src.modules.html" class="internal-link" title="src.modules">modules</a></code><wbr></wbr>.<code><a href="src.modules.exercises.html" class="internal-link" title="src.modules.exercises">exercises</a></code><wbr></wbr>.<code><a href="src.modules.exercises.exercise_4.html" class="internal-link" title="src.modules.exercises.exercise_4">exercise_4</a></code><wbr></wbr>.<code><a href="src.modules.exercises.exercise_4.statistics_functions.html" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions">statistics_functions</a></code></code></h1>
           <div id="show-private">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -283,7 +293,7 @@
         </div>
 
         <div class="moduleDocstring">
-          <div></div>
+          <div><p>Mòdul auxiliar de l'exercici 4 el qual implementa la funció analyze_dataset i funcions auxiliars per a poder analitzar el dataframe.</p></div>
         </div>
 
         <div id="split-tables">
@@ -294,32 +304,37 @@
     
     <td>Function</td>
     <td><code><a href="#analyze_dataset" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions.analyze_dataset">analyze<wbr></wbr>_dataset</a></code></td>
-    <td>:param merged_df: :return:</td>
+    <td>Funció principal d'anàlisi del dataframe, el qual retorna un diccionari per a poder ser desat.</td>
   </tr><tr class="function">
     
     <td>Function</td>
     <td><code><a href="#calculate_global_stats" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions.calculate_global_stats">calculate<wbr></wbr>_global<wbr></wbr>_stats</a></code></td>
-    <td>:param merged_df: :return:</td>
+    <td>Funció que calcula les estadístiques globals del dataframe a analitzar.</td>
   </tr><tr class="function">
     
     <td>Function</td>
     <td><code><a href="#calculate_metadata" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions.calculate_metadata">calculate<wbr></wbr>_metadata</a></code></td>
-    <td>:param n_elems: :param temporal_period: :return:</td>
+    <td>Funció que calcula les metadades de l'anàlisi del dataframe a analitzar.</td>
   </tr><tr class="function">
     
     <td>Function</td>
     <td><code><a href="#calculate_ranking_by_branch" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions.calculate_ranking_by_branch">calculate<wbr></wbr>_ranking<wbr></wbr>_by<wbr></wbr>_branch</a></code></td>
-    <td>:param merged_df: :return:</td>
+    <td>Funció que calcula el rànquing de les branques d'estudi amb una taxa de rendiment més alta / baixa, juntament amb el percentatge d'abandonament més alt i més baix a primer curs.</td>
   </tr><tr class="function">
     
     <td>Function</td>
     <td><code><a href="#calculate_statistics_per_branch" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions.calculate_statistics_per_branch">calculate<wbr></wbr>_statistics<wbr></wbr>_per<wbr></wbr>_branch</a></code></td>
-    <td>:param merged_df: :return:</td>
+    <td>Funció que calcula les estadístiques per branca que es demanen en l'enunciat de la pràctica.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#calculate_tendency_of_specific_branch" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions.calculate_tendency_of_specific_branch">calculate<wbr></wbr>_tendency<wbr></wbr>_of<wbr></wbr>_specific<wbr></wbr>_branch</a></code></td>
+    <td>Funció auxiliar que és cridada per totes les branques d'estudi la qual permet conèixer la tendència de cada branca.</td>
   </tr><tr class="function">
     
     <td>Function</td>
     <td><code><a href="#save_statistics" class="internal-link" title="src.modules.exercises.exercise_4.statistics_functions.save_statistics">save<wbr></wbr>_statistics</a></code></td>
-    <td>:param json_data: :param path: :return:</td>
+    <td>Funció que desa les dades del report al path que se li passi per paràmetre.</td>
   </tr>
 </table>
           
@@ -350,7 +365,13 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>:param merged_df: :return:</p></div>
+    <div><p class="pre">Funció principal d'anàlisi del dataframe, el qual retorna un diccionari per a poder ser desat.
+
+Args:
+    merged_df (pd.DataFrame): Dataframe a analitzat.
+
+Returns:
+    dict: Retorna el diccionari preparat per a ser desat en format JSON.</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -364,7 +385,7 @@
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">calculate_global_stats</span><span class="function-signature">(<span class="rst-sig-param">merged_df: <code>pd.DataFrame</code></span>):</span>
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">calculate_global_stats</span><span class="function-signature">(<span class="rst-sig-param">merged_df: <code>pd.DataFrame</code></span>) -&gt; <code>dict</code>:</span>
     
     <a class="headerLink" href="#calculate_global_stats" title="src.modules.exercises.exercise_4.statistics_functions.calculate_global_stats">
       
@@ -374,7 +395,13 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>:param merged_df: :return:</p></div>
+    <div><p class="pre">Funció que calcula les estadístiques globals del dataframe a analitzar.
+
+Args:
+    merged_df (pd.DataFrame): Dataframe a analitzar.
+
+Returns:
+    dict: Diccionari amb les dades globals que es demanen en l'enunciat de la pràctica.</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -398,7 +425,14 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>:param n_elems: :param temporal_period: :return:</p></div>
+    <div><p class="pre">Funció que calcula les metadades de l'anàlisi del dataframe a analitzar.
+
+Args:
+    n_elems (int): Nombre de files del dataframe a analitzar.
+    temporal_period (list): Cursos disponibles en el dataframe a analitzar.
+
+Returns:
+    dict: Diccionari amb les dades que es demanen en l'enunciat de la pràctica per a les metadades.</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -422,7 +456,15 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>:param merged_df: :return:</p></div>
+    <div><p class="pre">Funció que calcula el rànquing de les branques d'estudi amb una taxa de rendiment més alta / baixa, juntament
+amb el percentatge d'abandonament més alt i més baix a primer curs.
+
+Args:
+    merged_df (pd.DataFrame): Dataframe a analitzar.
+
+Returns:
+    dict: Diccionari amb el resultat del rànquing, calculat ordenant el paràmetre d'entrada en funció de la
+    taxa de rendiment o el percentatge d'abandonament a primer curs.</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -446,7 +488,45 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>:param merged_df: :return:</p></div>
+    <div><p class="pre">Funció que calcula les estadístiques per branca que es demanen en l'enunciat de la pràctica.
+
+Args:
+    merged_df (pd.DataFrame): Dataframe a analitzar.
+
+Returns:
+    dict: Diccionari amb el resultat de les dades per cada branca d'estudi.</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="src.modules.exercises.exercise_4.statistics_functions.calculate_tendency_of_specific_branch">
+    
+  </a>
+  <a name="calculate_tendency_of_specific_branch">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">calculate_tendency_of_specific_branch</span><span class="function-signature long-signature">(<span class="rst-sig-param">branch_data: <code>pd.DataFrame</code>, </span><span class="rst-sig-param">column_to_treat: <code>str</code></span>) -&gt; <code>str</code>:</span>
+    
+    <a class="headerLink" href="#calculate_tendency_of_specific_branch" title="src.modules.exercises.exercise_4.statistics_functions.calculate_tendency_of_specific_branch">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="pre">Funció auxiliar que és cridada per totes les branques d'estudi la qual permet conèixer la tendència de cada branca.
+
+Args:
+    branch_data (pd.DataFrame): Dataframe amb les dades que tenen a veure amb la branca d'estudi específica
+                                a analitzar
+    column_to_treat (str): Columna del dataframe a ser revisada.
+
+Returns:
+    str: Retorna la tendència de cada branca de estudi en funció del resultat del slope de la regressió lineal.</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -470,7 +550,14 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>:param json_data: :param path: :return:</p></div>
+    <div><p class="pre">Funció que desa les dades del report al path que se li passi per paràmetre.
+
+Args:
+    json_data (dict): Diccionari amb les dades del JSON amb les estadístiques a desar.
+    path (str): Path complert on es desarà el JSON.
+
+Returns:
+    None.</p></div>
   </div>
 </div>
         </div>
@@ -484,7 +571,7 @@
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for PCD_PAC4 - Francesc Ferré Tarrés,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-01-03 12:54:01.
+    25.10.1 at 2026-01-05 13:27:25.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

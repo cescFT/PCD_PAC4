@@ -135,16 +135,6 @@
             </div>
         
 
-    </li><li class="">
-        
-        
-        
-
-        
-            <div class="itemName"><code><a href="#group_dataframe" class="internal-link" title="src.modules.exercises.exercise_2.exercise_2.group_dataframe">group<wbr></wbr>_dataframe</a></code>
-            </div>
-        
-
     </li>
 </ul> 
 
@@ -238,7 +228,7 @@
         
 
         <div class="page-header">
-          <h1 class="module"><code><code><a href="index.html" class="internal-link">src</a></code><wbr></wbr>.<code><a href="src.modules.html" class="internal-link" title="src.modules">modules</a></code><wbr></wbr>.<code><a href="src.modules.exercises.html" class="internal-link" title="src.modules.exercises">exercises</a></code><wbr></wbr>.<code><a href="src.modules.exercises.exercise_2.html" class="internal-link" title="src.modules.exercises.exercise_2">exercise_2</a></code><wbr></wbr>.<code><a href="src.modules.exercises.exercise_2.exercise_2.html" class="internal-link" title="src.modules.exercises.exercise_2.exercise_2">exercise_2</a></code></code></h1>
+          <h1 class="module"><code><code><a href="src.html" class="internal-link">src</a></code><wbr></wbr>.<code><a href="src.modules.html" class="internal-link" title="src.modules">modules</a></code><wbr></wbr>.<code><a href="src.modules.exercises.html" class="internal-link" title="src.modules.exercises">exercises</a></code><wbr></wbr>.<code><a href="src.modules.exercises.exercise_2.html" class="internal-link" title="src.modules.exercises.exercise_2">exercise_2</a></code><wbr></wbr>.<code><a href="src.modules.exercises.exercise_2.exercise_2.html" class="internal-link" title="src.modules.exercises.exercise_2.exercise_2">exercise_2</a></code></code></h1>
           <div id="show-private">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -253,7 +243,16 @@
         </div>
 
         <div class="moduleDocstring">
-          <div></div>
+          <div><p class="pre">Mòdul que conté la funció que executa l'exercici 2.
+
+L'exercici consisteix en:
+
+1. Reanomenar les columnes del dataset taxa_abandonament.xlsx perquè coincideixi amb el dataset rediment_estudiants.xlsx
+2. Eliminació de les columnes "Universitat" i "Unitat" dels dos dataframes i "Crèdits ordinaris superats" i
+ "Crèdits ordinaris matriculats" en el cas del dataset de rendiment.
+3. Crear i aplicat als datasets una funció per a agrupar totes les files que comparteixen les mateixes característiques,
+i una columna que tigui el rendiment mitjà i la taxa mitjana.
+4. Creació d'una funció per per tal de fusionar ambdos datasets.</p></div>
         </div>
 
         <div id="split-tables">
@@ -264,12 +263,7 @@
     
     <td>Function</td>
     <td><code><a href="#exercise_2" class="internal-link" title="src.modules.exercises.exercise_2.exercise_2.exercise_2">exercise<wbr></wbr>_2</a></code></td>
-    <td>:param df: :return:</td>
-  </tr><tr class="function">
-    
-    <td>Function</td>
-    <td><code><a href="#group_dataframe" class="internal-link" title="src.modules.exercises.exercise_2.exercise_2.group_dataframe">group<wbr></wbr>_dataframe</a></code></td>
-    <td>Agrupa el dataframe per les columnes indicades i calcula la mitjana de la columna especificada.</td>
+    <td>Funció d'execució de l'exercici 2.</td>
   </tr>
 </table>
           
@@ -300,40 +294,13 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>:param df: :return:</p></div>
-  </div>
-</div><div class="basefunction">
-  
-  
-  <a name="src.modules.exercises.exercise_2.exercise_2.group_dataframe">
-    
-  </a>
-  <a name="group_dataframe">
-    
-  </a>
-  <div class="functionHeader">
-    
-    
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">group_dataframe</span><span class="function-signature">(<span class="rst-sig-param">df: <code>pd.DataFrame</code>, </span><span class="rst-sig-param">group_cols: <code>list</code>, </span><span class="rst-sig-param">value_column: <code>str</code></span>) -&gt; <code>pd.DataFrame</code>:</span>
-    
-    <a class="headerLink" href="#group_dataframe" title="src.modules.exercises.exercise_2.exercise_2.group_dataframe">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="docstring functionBody">
-    
-    <div><p class="pre">Agrupa el dataframe per les columnes indicades i calcula
-la mitjana de la columna especificada.
+    <div><p class="pre">Funció d'execució de l'exercici 2.
 
 Args:
-    df (pd.DataFrame): Dataframe d'entrada
-    group_cols (list): Lista de columnes que volem usar per a agrupar
-    value_column (str): Columna numèrica a agregar
+    df (pd.DataFrame): Dataframe d'entrada llegit per l'usuari
 
 Returns:
-    pd.DataFrame: Dataframe agregat</p></div>
+    pd.DataFrame: Dataframe unit d'acord amb l'enunciat de l'exercici 2</p></div>
   </div>
 </div>
         </div>
@@ -347,7 +314,7 @@ Returns:
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for PCD_PAC4 - Francesc Ferré Tarrés,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-01-03 12:54:01.
+    25.10.1 at 2026-01-05 13:27:25.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
