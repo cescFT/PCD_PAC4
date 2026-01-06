@@ -2,10 +2,6 @@
 Mòdul auxiliar de l'exercici 1 que permet la lectura d'un fitxer.
 """
 
-# Referències:
-# * Teoria
-# * https://stackoverflow.com/questions/52129876/userwarning-pandas-doesnt-allow-columns-to-be-created-via-a-new-attribute-name
-
 import pandas as pd
 
 def read_file(file_path: str = "") -> pd.DataFrame:

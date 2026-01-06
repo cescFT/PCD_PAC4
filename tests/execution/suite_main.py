@@ -2,9 +2,6 @@
 Suite per al testing del main
 """
 
-# Referències:
-# * Teoria U6
-
 import unittest
 from tests.execution.test_main import TestMain
 

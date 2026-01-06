@@ -2,10 +2,6 @@
 Mòdul auxiliar de l'exercici 2 per tractar les columnes del dataframe.
 """
 
-# Referències
-# * Teoria
-# * https://www.w3schools.com/python/ref_func_zip.asp
-
 import pandas as pd
 
 def rename_columns(df: pd.DataFrame, old_columns: list, new_columns: list) -> pd.DataFrame:

@@ -2,10 +2,6 @@
 Mòdul auxiliar de l'exercici 3 el qual permet crear subplots.
 """
 
-# Referències:
-# * https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html
-# * https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.grid.html
-
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -39,8 +35,9 @@ def create_subplot_with_specific_data(
     all_labels = []
     colors = plt.get_cmap("tab10").colors
 
-    # Per a tots els tipus d'estudi, agafem les dades de la branca d'estudi, les agrupem i les pintem en el gràfic
-    # amb un color específic per cada tipus d'estudi, on cada punt apareix amb una rodona i amb un gruix de 2 per la
+    # Per a tots els tipus d'estudi, agafem les dades de la branca d'estudi,
+    # les agrupem i les pintem en el gràfic amb un color específic per cada tipus d'estudi,
+    # on cada punt apareix amb una rodona i amb un gruix de 2 per la
     # línia representada en el gràfic.
     for i, branca in enumerate(study_type):
         df_plot = df_grouped[df_grouped["Branca"] == branca]
@@ -77,8 +74,10 @@ def prepare_data_of_plot(df_plot: pd.DataFrame, col: str) -> pd.DataFrame:
     Funció que prepara les dades pel subplot.
 
     Args:
-        df_plot (DataFrame): Dataframe amb les dades llest per a ser tractat i posteriorment pintat al subplot.
-        col (str): Columna del dataframe a ser pintada sobre la qual es fa la mitjana (punt del gràfic).
+        df_plot (DataFrame): Dataframe amb les dades llest per a ser tractat i
+         posteriorment pintat al subplot.
+        col (str): Columna del dataframe a ser pintada sobre la qual es fa
+         la mitjana (punt del gràfic).
 
     Returns:
         pd.Dataframe: Dataframe preparat per a ser representat en el subplot.

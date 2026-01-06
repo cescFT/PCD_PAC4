@@ -2,9 +2,6 @@
 Mòdul de testing de l'exercici 1
 """
 
-# Referències:
-# * Teoria U6
-
 import unittest
 import unittest.mock
 
