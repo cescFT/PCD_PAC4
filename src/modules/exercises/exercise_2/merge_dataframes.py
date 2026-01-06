@@ -2,10 +2,6 @@
 Mòdul auxiliar que permet ajuntar dataframes
 """
 
-# Referències:
-# * Teoria
-# * https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html
-
 import pandas as pd
 
 def merge_dataframes(df_1: pd.DataFrame, df_2: pd.DataFrame, merge_columns: list) -> pd.DataFrame:

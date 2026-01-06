@@ -1,6 +1,6 @@
 """
-Mòdul auxiliar de l'exercici 4 el qual implementa la funció analyze_dataset i funcions auxiliars per a poder
-analitzar el dataframe.
+Mòdul auxiliar de l'exercici 4 el qual implementa la funció analyze_dataset
+ i funcions auxiliars per a poder analitzar el dataframe.
 """
 
 import json
@@ -8,6 +8,7 @@ import os
 from datetime import datetime
 
 import pandas as pd
+import numpy as np
 from scipy.stats import linregress, pearsonr
 
 
@@ -36,7 +37,8 @@ def analyze_dataset(merged_df: pd.DataFrame) -> dict:
     # Calculem les estadístiques per cada branca d'estudi
     json_data["analisis_por_rama"] = calculate_statistics_per_branch(merged_df)
 
-    # Calculem el ranquing per saber qui té més o menys taxa de rendiment i percentatge d'abandonament
+    # Calculem el ranquing per saber qui té més o menys taxa de rendiment
+    # i percentatge d'abandonament
     json_data["ranking_ramas"] = calculate_ranking_by_branch(merged_df)
 
     return json_data
@@ -44,22 +46,31 @@ def analyze_dataset(merged_df: pd.DataFrame) -> dict:
 
 def calculate_ranking_by_branch(merged_df: pd.DataFrame) -> dict:
     """
-    Funció que calcula el rànquing de les branques d'estudi amb una taxa de rendiment més alta / baixa, juntament
-    amb el percentatge d'abandonament més alt i més baix a primer curs.
+    Funció que calcula el rànquing de les branques d'estudi amb una taxa de rendiment
+     més alta / baixa, juntament amb el percentatge d'abandonament més alt i
+    més baix a primer curs.
 
     Args:
         merged_df (pd.DataFrame): Dataframe a analitzar.
 
     Returns:
-        dict: Diccionari amb el resultat del rànquing, calculat ordenant el paràmetre d'entrada en funció de la
-        taxa de rendiment o el percentatge d'abandonament a primer curs.
+        dict: Diccionari amb el resultat del rànquing, calculat ordenant el paràmetre d'entrada
+         en funció de la taxa de rendiment o el percentatge d'abandonament a primer curs.
     """
 
-    df_ordered_by_tax = merged_df.sort_values(by=["Taxa rendiment"], ascending=False)
+    df_ordered_by_tax = merged_df.sort_values(
+        by=["Taxa rendiment"],
+        ascending=False
+    )
+
     best_performance_tax = df_ordered_by_tax["Branca"].iloc[0]
     worst_performance_tax = df_ordered_by_tax["Branca"].iloc[-1]
 
-    df_ordered_by_abandonment = merged_df.sort_values(by=["% Abandonament a primer curs"], ascending=False)
+    df_ordered_by_abandonment = merged_df.sort_values(
+        by=["% Abandonament a primer curs"],
+        ascending=False
+    )
+
     best_abandonment = df_ordered_by_abandonment["Branca"].iloc[0]
     wort_abandonment = df_ordered_by_abandonment["Branca"].iloc[-1]
 
@@ -89,14 +100,37 @@ def calculate_statistics_per_branch(merged_df: pd.DataFrame) -> dict:
 
     for study_type_branch in study_type_branches:
         branch_data = merged_df[merged_df["Branca"] == study_type_branch]
-        mean_abandonment_percentage = round(float(branch_data["% Abandonament a primer curs"].mean()), 2)
-        sd_abandonment_percentage = round(float(branch_data["% Abandonament a primer curs"].std()), 2)
-        min_abandonment_percentage = round(float(branch_data["% Abandonament a primer curs"].min()), 2)
-        max_abandonment_percentage = round(float(branch_data["% Abandonament a primer curs"].max()), 2)
-        mean_tax_performance = round(float(branch_data["Taxa rendiment"].mean()), 2)
-        sd_tax_performance = round(float(branch_data["Taxa rendiment"].std()), 2)
-        min_tax_performance = round(float(branch_data["Taxa rendiment"].min()), 2)
-        max_tax_performance = round(float(branch_data["Taxa rendiment"].max()), 2)
+        mean_abandonment_percentage = format_value(
+            branch_data["% Abandonament a primer curs"].mean()
+        )
+
+        sd_abandonment_percentage = format_value(
+            branch_data["% Abandonament a primer curs"].std()
+        )
+
+        min_abandonment_percentage = format_value(
+            branch_data["% Abandonament a primer curs"].min()
+        )
+
+        max_abandonment_percentage = format_value(
+            branch_data["% Abandonament a primer curs"].max()
+        )
+
+        mean_tax_performance = format_value(
+            branch_data["Taxa rendiment"].mean()
+        )
+
+        sd_tax_performance = format_value(
+            branch_data["Taxa rendiment"].std()
+        )
+
+        min_tax_performance = format_value(
+            branch_data["Taxa rendiment"].min()
+        )
+
+        max_tax_performance = format_value(
+            branch_data["Taxa rendiment"].max()
+        )
 
         tendency_abandonment = calculate_tendency_of_specific_branch(
             branch_data,
@@ -124,17 +158,33 @@ def calculate_statistics_per_branch(merged_df: pd.DataFrame) -> dict:
 
     return json_statistics_per_branch
 
-def calculate_tendency_of_specific_branch(branch_data: pd.DataFrame, column_to_treat: str) -> str:
+def format_value(value: np.float64) -> float:
     """
-    Funció auxiliar que és cridada per totes les branques d'estudi la qual permet conèixer la tendència de cada branca.
+    Funció auxiliar que passat un float de numpy per paràmetre,
+    l'arrodoneix a dos decimals i el passa a float normal.
 
     Args:
-        branch_data (pd.DataFrame): Dataframe amb les dades que tenen a veure amb la branca d'estudi específica
-                                    a analitzar
+        value (np.float64): Valor a formatar.
+
+    Returns:
+        float: Valor en format dos decimals.
+    """
+
+    return round(float(value), 2)
+
+def calculate_tendency_of_specific_branch(branch_data: pd.DataFrame, column_to_treat: str) -> str:
+    """
+    Funció auxiliar que és cridada per totes les branques d'estudi
+    la qual permet conèixer la tendència de cada branca.
+
+    Args:
+        branch_data (pd.DataFrame): Dataframe amb les dades que tenen a veure amb
+         la branca d'estudi específica a analitzar
         column_to_treat (str): Columna del dataframe a ser revisada.
 
     Returns:
-        str: Retorna la tendència de cada branca de estudi en funció del resultat del slope de la regressió lineal.
+        str: Retorna la tendència de cada branca de estudi en funció del resultat del slope
+         de la regressió lineal.
     """
 
     branch_by_year_abandonment = branch_data.groupby("Curs Acadèmic").agg({
@@ -188,7 +238,8 @@ def calculate_metadata(n_elems: int, temporal_period: list) -> dict:
         temporal_period (list): Cursos disponibles en el dataframe a analitzar.
 
     Returns:
-        dict: Diccionari amb les dades que es demanen en l'enunciat de la pràctica per a les metadades.
+        dict: Diccionari amb les dades que es demanen en l'enunciat de la pràctica
+         per a les metadades.
     """
 
     return {

@@ -2,9 +2,6 @@
 Suite per al testing de l'exercici 1
 """
 
-# Referències:
-# * Teoria U6
-
 import unittest
 from tests.exercise_1.test_exercise_1 import TestReadFile, TestExploreDataframe, TestExercise1
 

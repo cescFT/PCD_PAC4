@@ -190,6 +190,29 @@ Quan aquest hagi acabat, en principi generarà l'executable `PCD_PAC4-cli`, el q
 admet els arguments `-h` i `-ex <num_ex>` anteriorment descrits.
 
 
+# Referències web per a realitzar la pràctica
+
+Per tal de complir amb el PEP8, no puc posar línies de més de 100 caràcters, i en molts casos les URLs que he consultat
+tenen més de 100 caràcters, i això em fa baixar la puntuació del PEP8. És per això que he decidit posar les referències
+en un apartat del README.
+
+* Teoria
+* Enunciat pràctica
+* https://docs.python.org/3/library/argparse.html
+* https://stackoverflow.com/questions/64420348/ignore-userwarning-from-openpyxl-using-pandas
+* https://stackoverflow.com/questions/9426045/difference-between-exit0-and-exit1-in-python
+* https://stackoverflow.com/questions/52129876/userwarning-pandas-doesnt-allow-columns-to-be-created-via-a-new-attribute-name
+* https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html
+* https://www.w3schools.com/python/ref_func_zip.asp
+* https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html
+* https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+* https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html
+* https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.grid.html
+* https://docs.python.org/es/dev/library/unittest.mock.html
+* https://docs.python.org/3/library/unittest.mock.html
+* https://docs.python.org/3/library/unittest.mock.html#unittest.mock.MagicMock
+
+
 TODOs:
 * Revisar que al README estigui tot ok
 * Afegir referencies al codi 

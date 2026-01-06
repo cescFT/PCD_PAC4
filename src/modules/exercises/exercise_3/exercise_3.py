@@ -10,12 +10,6 @@ Finalment, es desa en el directori corresponent i amb la configuració que es de
 en l'enunciat.
 """
 
-# Referències:
-# * Teoria
-# * https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html
-# * https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
-
-
 import os
 
 import pandas as pd
@@ -26,7 +20,8 @@ from src.modules.exercises.exercise_3.subplot_create import create_subplot_with_
 
 def exercise_3(df_grouped: pd.DataFrame) -> None:
     """
-    Funció que dona resposta a l'exercici 3. Genera els subplots i tot el que es demana en l'exercici.
+    Funció que dona resposta a l'exercici 3.
+    Genera els subplots i tot el que es demana en l'exercici.
 
     Args:
         df_grouped (pd.DataFrame): dataframe agrupat.
@@ -39,8 +34,8 @@ def exercise_3(df_grouped: pd.DataFrame) -> None:
     fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(14, 10), sharex=True)
     study_type = sorted(df_grouped["Branca"].unique())
 
-    # Creem el primer gràfic per a mostrar el percentatge d'abandonament mitjà en el primer curs per curs acadèmic
-    # i branca d'estudi.
+    # Creem el primer gràfic per a mostrar el percentatge d'abandonament mitjà
+    # en el primer curs per curs acadèmic i branca d'estudi.
     ax1 = axes[0]
     result = create_subplot_with_specific_data(
         axes=ax1,
@@ -53,7 +48,8 @@ def exercise_3(df_grouped: pd.DataFrame) -> None:
     all_lines = result["all_lines"]
     all_labels = result["all_labels"]
 
-    # Creem el segon gràfic per a mostrar la taxa de rendiment mitjà per curs acadèmic i branca d'estudi.
+    # Creem el segon gràfic per a mostrar la taxa de rendiment mitjà
+    # per curs acadèmic i branca d'estudi.
     ax2 = axes[1]
     create_subplot_with_specific_data(
         axes=ax2,

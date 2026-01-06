@@ -29,8 +29,8 @@ def exercise_2(df: pd.DataFrame) -> pd.DataFrame:
         pd.DataFrame: Dataframe unit d'acord amb l'enunciat de l'exercici 2
     """
 
-    # En aquest snippet de codi el que fem és llegir el document contrari que ha escollit l'usuari per a poder fer el
-    # merge final.
+    # En aquest snippet de codi el que fem és llegir el document contrari que ha escollit l'usuari
+    # per a poder fer el merge final.
     if "rendiment_estudiants.xlsx" in df.source_file:
         df_abandonment_tax = pd.read_excel("data/taxa_abandonament.xlsx")
         df_performance_students = df
@@ -77,8 +77,17 @@ def exercise_2(df: pd.DataFrame) -> pd.DataFrame:
             cols.append(col)
 
     # Agrupació dels dataframes d'acord amb l'enunciat de la pràctica
-    df_grouped_abandonment = group_dataframe(df_abandonment_tax, cols, "% Abandonament a primer curs")
-    df_grouped_performance = group_dataframe(df_performance_students, cols, "Taxa rendiment")
+    df_grouped_abandonment = group_dataframe(
+        df_abandonment_tax,
+        cols,
+        "% Abandonament a primer curs"
+    )
+
+    df_grouped_performance = group_dataframe(
+        df_performance_students,
+        cols,
+        "Taxa rendiment"
+    )
 
     # Retornem el dataframe ajuntat d'acord amb l'enunciat de la pràctica
     df_merged = merge_dataframes(df_grouped_abandonment, df_grouped_performance, cols)

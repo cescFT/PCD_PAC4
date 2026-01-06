@@ -20,9 +20,11 @@ from src.modules.exercises.exercise_4 import exercise_4
 
 def main() -> None:
     """
-    Funció principal sobre la qual s'executa tot el codi. Aquesta funció permet passar-li arguments per línia de
-    comanda. Les opcions són -h per l'ajuda i -ex pel número d'exercici vàlid sobre el qual vols executar, és a dir,
-    si vols executar del l'1 al 3, se li pot passar l'exercici 3. Si no se li passa res, ho executa tot.
+    Funció principal sobre la qual s'executa tot el codi.
+    Aquesta funció permet passar-li arguments per línia de comanda.
+    Les opcions són -h per l'ajuda i -ex pel número d'exercici vàlid
+    sobre el qual vols executar, és a dir, si vols executar del l'1 al 3,
+    se li pot passar l'exercici 3. Si no se li passa res, ho executa tot.
 
     Args:
         None.
@@ -32,16 +34,15 @@ def main() -> None:
     """
 
     # Ignoro un warning que hi ha en el moment de llegir els excels, de la llibreria openpyxl
-    # Referencia: https://stackoverflow.com/questions/64420348/ignore-userwarning-from-openpyxl-using-pandas
     warnings.filterwarnings(
         "ignore",
         message="Cannot parse header or footer",
         category=UserWarning
     )
 
-    # Referencia: https://docs.python.org/3/library/argparse.html
     parser = argparse.ArgumentParser(
-        description="Execució dels exercicis de la PAC 4 de l'assignatura de Programació per a la Ciència de Dades."
+        description="Execució dels exercicis de la PAC 4"
+                    " de l'assignatura de Programació per a la Ciència de Dades."
     )
 
     parser.add_argument(
@@ -53,7 +54,8 @@ def main() -> None:
     parser.add_argument(
         "-file",
         type=str,
-        help="Llegeix el fitxer que se li passi per paràmetre. Per exemple: data/rendiment_estudiants.xlsx"
+        help="Llegeix el fitxer que se li passi per paràmetre."
+             " Per exemple: data/rendiment_estudiants.xlsx"
     )
 
     args = parser.parse_args()
@@ -67,8 +69,9 @@ def main() -> None:
     ]
 
     # Revisem si tenim l'exercici passat per paràmetre
-    # En cas que no se li passi un valor vàlid d'exercici, retornem un 1, tot indicant que el programa no ha acabat bé
-    # Ara bé, si no se li passa l'argument -ex, el límit és la mateixa mida de l'array creada amb els exercicis.
+    # En cas que no se li passi un valor vàlid d'exercici, retornem un 1,
+    # tot indicant que el programa no ha acabat bé. Ara bé, si no se li passa l'argument -ex,
+    # el límit és la mateixa mida de l'array creada amb els exercicis.
     if args.ex is not None:
         limit = args.ex
         if limit <= 0 or limit > len(exercises):
@@ -83,7 +86,6 @@ def main() -> None:
     # sigui vàlid, és a dir, que sigui un fitxer i que existexi. Si no existeix el fitxer
     # o no és vàlid, pintem per pantalla un missatge i acabem l'execució del programa amb un 1,
     # indicant que el programa no ha acabat bé.
-    # Referència: https://stackoverflow.com/questions/9426045/difference-between-exit0-and-exit1-in-python
     file_path = ""
     if args.file is not None:
         file_path = args.file

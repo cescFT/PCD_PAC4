@@ -2,12 +2,6 @@
 Classe de testing que testeja la funció principal main
 """
 
-# Referències:
-# * Teoria U6
-# * https://docs.python.org/es/dev/library/unittest.mock.html
-# * https://docs.python.org/3/library/unittest.mock.html
-# * https://docs.python.org/3/library/unittest.mock.html#unittest.mock.MagicMock
-
 import unittest
 from unittest.mock import patch, MagicMock
 from src.execution.main import main
