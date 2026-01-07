@@ -50,6 +50,7 @@ virtualenv <nom_entorn_virtual>
 ```
 
 *Nota: Substituïu `<nom_entorn_virtual>` pel nom que li volgueu donar, normalment es diu `venv`.*
+*En cas que no funcioni, de forma alternativa es pot executar la comanda `python -m venv <nom_entorn_virtual>`*
 
 Llavors, en un entorn Windows, per accedir a l'entorn, cal executar l'script següent:
 
@@ -159,7 +160,7 @@ pip install pylint
 ```
 
 *Nota: en el `requirements.txt` ja hi ha la dependència i cal estar en l'entorn virtual `<nom_entorn_virtual>` per a 
-executar la revisió del PEP8.
+executar la revisió del PEP8.*
 
 Per tal de comprovar si es compleix, executem la comanda:
 
@@ -194,19 +195,145 @@ Així doncs, la comanda preparada per ser executada en l'arrel del projecte és 
 PCD_PAC4-cli
 ```
 
-
 # Galeria d'imatges com a joc de proves
+
+## Captures de pantalla referents a PEP8
+
+### PEP8 Codi src
+
+![Pep8 codi](screenshots/PEP8/Codi%20src/Demostració%20que%20el%20codi%20compleix%20PEP8.png)
+
+### PEP8 Codi tests
+
+![Pep8 tests](screenshots/PEP8/Codi%20tests/pep8test.png)
+
+
+## Entorn virutal
+
+![entorn](screenshots/virtualenv/crear%20entorn%20virtual%20+%20accedir%20+%20instalar%20dependencies.png)
+
+## Main
+
+![main opcio ex valid](screenshots/main/main_opcio_ex_valid.png)
+
+*Prova: En el main passa-li la opció -ex amb un exercici vàlid*
+
+![main opcio ex no valid](screenshots/main/main_opcio_ex_no_valid.png)
+
+*Prova: En el main passant-li la opció -ex amb un exercici no vàlid*
+
+![main opcio ajuda h](screenshots/main/main_opcio_h_ajuda.png)
+
+*Prova: En el main passant-li la opció -h*
+
+![main opcio fixer](screenshots/main/main_passant_fitxer.png)
+
+*Prova: En el main passant-li un fitxer amb el paràmetre -file*
+
+![main opcio fixer no valid](screenshots/main/main_passant_fitxer_no_valid.png)
+
+*Prova: En el main passant-li un fitxer amb el paràmetre -file no vàlid*
+
+![main opcions fitxer i exercici](screenshots/main/main_passant_fitxer_i_exercici.png)
+
+*Prova: En el main passant-li un fitxer amb el paràmetre -file vàlid i exercici vàlid*
+
+![main test](screenshots/main/tests_main.png)
+
+*Execució dels tests*
+
+![coverage main](screenshots/main/coverage_main.png)
+
+*Coverage main*
 
 ## Exercici 1
 
 ![Exercici 1: Demanem fitxer](screenshots/ex1/ex1_execucio_demanem_fitxer.png)
 
+*Prova: Demanem fitxer per a llegir*
+
 ![Exercici 1: Passem fitxer per paràmetre](screenshots/ex1/ex1_execucio_passem_fitxer_per_parametre.png)
+*Prova: Passem el fitxer per a llegir com a paràmetre*
 
 ![Exercici 1: Tests](screenshots/ex1/test_suite_ex1.png)
+*Execució dels tests de l'exercici 1*
 
 ![Exercici 1: Coverage](screenshots/ex1/coverage_ex1.png)
+*Mostra del coverage de l'exercici 1*
 
+## Exercici 2
+
+### Carregant en primer lloc el fitxer rendiment_estudiants
+
+![Exercici 2: Càrrega rendiment estudiants](screenshots/ex2/Carreguem_rendiment_estudiants/al_primer_exercici_carreguem_rendiment_estudiants.png)
+*En el primer exercici carreguem el fitxer de rendiment estudiants*
+
+![Exercici 2: Primera part de la execució](screenshots/ex2/Carreguem_rendiment_estudiants/execucio_ex2_(1).png)
+*Primera part de la execució de l'exercici 2*
+
+![Exercici 2: Segona part de la execució](screenshots/ex2/Carreguem_rendiment_estudiants/execucio_ex2_(2).png)
+*Segona part de la execució de l'exercici 2*
+
+### Carregant en primer lloc el fitxer taxa_abandonament
+
+![Exercici 2: Càrrega taxa abandonament](screenshots/ex2/Carreguem_taxa_abandonament/al_primer_exercici_carreguem_taxa_abandonament.png)
+*En el primer exercici carreguem el fitxer de taxa abandonament*
+
+![Exercici 2: Primera part de la execució](screenshots/ex2/Carreguem_taxa_abandonament/execucio_ex2_(1).png)
+*Primera part de la execució de l'exercici 2*
+
+![Exercici 2: Segona part de la execució](screenshots/ex2/Carreguem_taxa_abandonament/execucio_ex2_(2).png)
+*Segona part de la execució de l'exercici 2*
+
+### Test i coverage
+
+![Exercici 2: Test](screenshots/ex2/test_suite_ex2.png)
+*Mostra del test de l'exercici 2*
+
+![Exercici 2: Coverage](screenshots/ex2/coverage_ex2.png)
+*Mostra del coverage de l'exercici 2*
+
+## Exercici 3
+
+![Exercici 3: Execucio](screenshots/ex3/execucio_ex3.png)
+
+*Execució de l'exercici 3*
+
+![Exercici 3: Figura (gràfic) desat correctament](screenshots/ex3/figura_desada.png)
+
+*Figura desada a la carpeta on indica l'enunciat*
+
+## Exercici 4
+
+![Exercici 4: Execució](screenshots/ex4/execucio_ex4.png)
+
+*Execució de l'exercici 4*
+
+![Exercici4: fitxer generat correctament](screenshots/ex4/fitxer%20generat.png)
+
+*Fitxer generat correctament*
+
+![Test exercici 4](screenshots/ex4/test_suite_ex4.png)
+
+*Test exercici 4*
+
+![Coverage exercici 4](screenshots/ex4/coverage_ex4.png)
+
+*Coverage exercici 4*
+
+## Creació de la comanda CLI a través del setup.py
+
+![pip install .](screenshots/Creant_executable_pel_setup_py/pip_install.png)
+
+*Mostra del pip install .*
+
+![Exemple Execució comanda ajuda](screenshots/Creant_executable_pel_setup_py/exemple_funcionament_senzill.png)
+
+*Un cop instal·lat, mostra com la comanda d'ajuda funciona correctament*
+
+![Exemple execució amb la comanda i el parametre ex](screenshots/Creant_executable_pel_setup_py/exemple_funcionament_senzill_(1).png)
+
+*Exemple d'execució a través de la comanda amb el paràmetre -ex*
 
 # Referències web per a realitzar la pràctica
 
@@ -229,12 +356,17 @@ en un apartat del README.
 * https://docs.python.org/es/dev/library/unittest.mock.html
 * https://docs.python.org/3/library/unittest.mock.html
 * https://docs.python.org/3/library/unittest.mock.html#unittest.mock.MagicMock
+* https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.assert_called_with
+* https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.assert_not_called
+* https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.return_value
+* https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.side_effect
+* https://pandas.pydata.org/docs/reference/api/pandas.testing.assert_frame_equal.html
+* https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html
+* https://www.geeksforgeeks.org/python/python-unittest-assertin-function/
+* https://docs.python.org/3/library/unittest.mock.html#mock-open
+* https://stackoverflow.com/questions/15763394/mocking-two-functions-with-patch-for-a-unit-test
+* https://www.youtube.com/watch?v=GaWs-LenLYE
 
 
 TODOs:
 * Revisar que al README estigui tot ok
-* Afegir referencies al codi 
-* Validar resultats
-* Documentar les funcions + params entrada i sortida
-* Fer tests + coverage + pep8 i captures de pantalla
-* Passar les referencies al README

@@ -31,7 +31,13 @@ def exercise_3(df_grouped: pd.DataFrame) -> None:
     """
 
     # Generem el plot amb dos subplots.
-    fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(14, 10), sharex=True)
+    fig, axes = plt.subplots(
+        nrows=2,
+        ncols=1,
+        figsize=(14, 10),
+        sharex=True
+    )
+
     study_type = sorted(df_grouped["Branca"].unique())
 
     # Creem el primer gràfic per a mostrar el percentatge d'abandonament mitjà

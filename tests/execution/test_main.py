@@ -30,8 +30,9 @@ class TestMain(unittest.TestCase):
         """
         Test de la funció main() sense passar arguments per línia de comanda.
     
-        Aquest test comprova que, quan no es passen arguments es criden tots els exercicis en ordre ascendent. Es
-        simulen les funcions dels exercisis i al final es comprova el sys.exit(0), indicant final correcte d'execució.
+        Aquest test comprova que, quan no es passen arguments es criden tots els exercicis
+        en ordre ascendent. Es simulen les funcions dels exercisis i al final es comprova
+        el sys.exit(0), indicant final correcte d'execució.
     
         Args:
              mock_exit: Mock de sys.exit per evitar sortir del test realment.
@@ -40,13 +41,18 @@ class TestMain(unittest.TestCase):
              mock_ex2: Mock de la funció exercise_2.
              mock_ex1: Mock de la funció exercise_1.
              mock_parse_args: Mock de parse_args per simular els arguments de línia de comanda.
+        Returns:
+            None.
     """
+        # Simulació dels paràmetres d'entrada i els return values
         mock_parse_args.return_value = MagicMock(ex=None, file=None)
         mock_ex1.return_value = "df_read"
         mock_ex2.return_value = "merged_df"
 
+        # Execució de la funció main()
         main()
 
+        # Conjunt d'asserts que validen el test i que acaba amb un sys.exit(0)
         mock_ex1.assert_called_once_with("")
         mock_ex2.assert_called_once_with("df_read")
         mock_ex3.assert_called_once_with("merged_df")
@@ -58,29 +64,35 @@ class TestMain(unittest.TestCase):
         """
         Funció que comprova el codi de passar-li un valor erroni al main.
         Args:
-            mock_parse_args: Mock dels arguments passats per línia de comanda
+            mock_parse_args: Mock dels arguments passats per línia de comanda.
+        Returns:
+            None.
         """
+
+        #Simulem un valor no vàlid d'exercici com a paràmetre
         mock_parse_args.return_value = MagicMock(ex=10, file=None)
 
+        # Executem i validem que retorna un sys.exit(1)
         with self.assertRaises(SystemExit) as cm:
             main()
 
         self.assertEqual(cm.exception.code, 1)
 
     @patch("src.execution.main.argparse.ArgumentParser.parse_args")
-    @patch("src.execution.main.os.path.isfile", return_value=False)
-    @patch("src.execution.main.os.path.exists", return_value=False)
-    def test_invalid_file_path(self, mock_exists, mock_isfile, mock_parse_args) -> None:
+    def test_invalid_file_path(self, mock_parse_args) -> None:
         """
         Test de la funció main() quan se li passa un fitxer invàlid amb l'argument -file.
         
-        Args: 
-             mock_exists: Mock de os.path.exists per controlar l'existència del fitxer.
-             mock_isfile: Mock de os.path.isfile per controlar si és un fitxer.
+        Args:
              mock_parse_args: Mock de parse_args per simular els arguments de línia de comanda.
+        Returns:
+            None.
         """
+
+        # Simulem que se li passa per paràmetre un fitxer no vàlid que es vol llegir.
         mock_parse_args.return_value = MagicMock(ex=None, file="fake.xlsx")
 
+        # Executem main i comprovem com retorna un sys.exit(1)
         with self.assertRaises(SystemExit) as cm:
             main()
 
@@ -111,14 +123,19 @@ class TestMain(unittest.TestCase):
              mock_ex2: Mock de la funció exercise_2.
              mock_ex1: Mock de la funció exercise_1.
              mock_parse_args: Mock de parse_args per simular els arguments de línia de comanda.
-        :return: 
+        Returns:
+            None.
         """
 
+        # Simulem que se li passa un exercici vàlid i falsegem la sortida
         mock_parse_args.return_value = MagicMock(ex=1, file=None)
         mock_ex1.return_value = "df_read"
 
+        # Execució de la funció
         main()
 
+        # Validem com només s'executa el primer exercici, i que la resta no s'executen
+        # i acaba amb un sys.exit(0)
         mock_ex1.assert_called_once_with("")
         mock_ex2.assert_not_called()
         mock_ex3.assert_not_called()
@@ -126,8 +143,6 @@ class TestMain(unittest.TestCase):
         mock_exit.assert_called_once_with(0)
 
     @patch("src.execution.main.argparse.ArgumentParser.parse_args")
-    @patch("src.execution.main.os.path.isfile", return_value=True)
-    @patch("src.execution.main.os.path.exists", return_value=True)
     @patch("src.execution.main.exercise_1.exercise_1")
     @patch("src.execution.main.exercise_2.exercise_2")
     @patch("src.execution.main.exercise_3.exercise_3")
@@ -140,31 +155,37 @@ class TestMain(unittest.TestCase):
         mock_ex3,
         mock_ex2,
         mock_ex1,
-        mock_exists,
-        mock_isfile,
         mock_parse_args
-    ):
+    ) -> None:
         """
         Test que testeja tot el main amb fitxer.
-        
+
         Args:
-             mock_exit: 
-             mock_ex4: 
-             mock_ex3: 
-             mock_ex2: 
-             mock_ex1: 
-             mock_exists: 
-             mock_isfile: 
-             mock_parse_args: 
+            mock_exit: Mock de sys.exit per evitar sortir del test realment.
+            mock_ex4: Mock de la funció exercise_4.
+            mock_ex3: Mock de la funció exercise_3.
+            mock_ex2: Mock de la funció exercise_2.
+            mock_ex1: Mock de la funció exercise_1.
+            mock_parse_args: Mock de parse_args per simular els arguments de línia de comanda.
+        Returns:
+            None.
         """
-        mock_parse_args.return_value = MagicMock(ex=None, file="data.xlsx")
-        mock_ex1.return_value = "df_read"
-        mock_ex2.return_value = "merged_df"
 
-        main()
+        # Simulem que es un fitxer vàlid que seli passa per parametre i simulem els returns
+        # de les funcions
+        with patch("src.execution.main.os.path.exists", return_value=True), \
+                patch("src.execution.main.os.path.isfile", return_value=True):
+            mock_parse_args.return_value = MagicMock(ex=None, file="data.xlsx")
+            mock_ex1.return_value = "df_read"
+            mock_ex2.return_value = "merged_df"
 
-        mock_ex1.assert_called_once_with("data.xlsx")
-        mock_ex2.assert_called_once_with("df_read")
-        mock_ex3.assert_called_once_with("merged_df")
-        mock_ex4.assert_called_once_with("merged_df")
-        mock_exit.assert_called_once_with(0)
+            # Executem el main
+            main()
+
+            # Revisem que s'executi un sol cop les diferents funcions i que acabi amb un
+            # sys.exit(0)
+            mock_ex1.assert_called_once_with("data.xlsx")
+            mock_ex2.assert_called_once_with("df_read")
+            mock_ex3.assert_called_once_with("merged_df")
+            mock_ex4.assert_called_once_with("merged_df")
+            mock_exit.assert_called_once_with(0)
