@@ -218,8 +218,8 @@ def calculate_global_stats(merged_df: pd.DataFrame) -> dict:
     """
 
     corr, _ = pearsonr(
-        merged_df["% Abandonament a primer curs"],
-        merged_df["Taxa rendiment"]
+        merged_df["% Abandonament a primer curs"].dropna(),
+        merged_df["Taxa rendiment"].dropna()
     )
 
     return {

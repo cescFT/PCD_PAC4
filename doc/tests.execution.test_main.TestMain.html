@@ -279,7 +279,7 @@
     
     <td>Method</td>
     <td><code><a href="#test_invalid_exercise_number" class="internal-link" title="tests.execution.test_main.TestMain.test_invalid_exercise_number">test<wbr></wbr>_invalid<wbr></wbr>_exercise<wbr></wbr>_number</a></code></td>
-    <td>Funció que comprova el codi de passar-li un valor erroni al main. Args:     mock_parse_args: Mock dels arguments passats per línia de comanda</td>
+    <td>Funció que comprova el codi de passar-li un valor erroni al main. Args:     mock_parse_args: Mock dels arguments passats per línia de comanda. Returns:     None.</td>
   </tr><tr class="method">
     
     <td>Method</td>
@@ -314,8 +314,8 @@
   </a>
   <div class="functionHeader">
     
-    <div><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.argparse.ArgumentParser.parse_args</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.os.path.isfile</span><span class="rst-variable-quote">'</span>, <wbr></wbr>return_value=True)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.os.path.exists</span><span class="rst-variable-quote">'</span>, <wbr></wbr>return_value=True)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.exercise_1.exercise_1</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.exercise_2.exercise_2</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.exercise_3.exercise_3</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.exercise_4.exercise_4</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.sys.exit</span><span class="rst-variable-quote">'</span>)<br /></span></div>
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">test_full_execution_with_file</span><span class="function-signature long-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">mock_exit, </span><span class="rst-sig-param">mock_ex4, </span><span class="rst-sig-param">mock_ex3, </span><span class="rst-sig-param">mock_ex2, </span><span class="rst-sig-param">mock_ex1, </span><span class="rst-sig-param">mock_exists, </span><span class="rst-sig-param">mock_isfile, </span><span class="rst-sig-param">mock_parse_args</span>):</span>
+    <div><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.argparse.ArgumentParser.parse_args</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.exercise_1.exercise_1</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.exercise_2.exercise_2</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.exercise_3.exercise_3</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.exercise_4.exercise_4</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.sys.exit</span><span class="rst-variable-quote">'</span>)<br /></span></div>
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">test_full_execution_with_file</span><span class="function-signature long-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">mock_exit, </span><span class="rst-sig-param">mock_ex4, </span><span class="rst-sig-param">mock_ex3, </span><span class="rst-sig-param">mock_ex2, </span><span class="rst-sig-param">mock_ex1, </span><span class="rst-sig-param">mock_parse_args</span>):</span>
     
     <a class="headerLink" href="#test_full_execution_with_file" title="tests.execution.test_main.TestMain.test_full_execution_with_file">
       
@@ -328,14 +328,14 @@
     <div><p class="pre">Test que testeja tot el main amb fitxer.
 
 Args:
-     mock_exit: 
-     mock_ex4: 
-     mock_ex3: 
-     mock_ex2: 
-     mock_ex1: 
-     mock_exists: 
-     mock_isfile: 
-     mock_parse_args: </p></div>
+    mock_exit: Mock de sys.exit per evitar sortir del test realment.
+    mock_ex4: Mock de la funció exercise_4.
+    mock_ex3: Mock de la funció exercise_3.
+    mock_ex2: Mock de la funció exercise_2.
+    mock_ex1: Mock de la funció exercise_1.
+    mock_parse_args: Mock de parse_args per simular els arguments de línia de comanda.
+Returns:
+    None.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -361,7 +361,9 @@ Args:
     
     <div><p class="pre">Funció que comprova el codi de passar-li un valor erroni al main.
 Args:
-    mock_parse_args: Mock dels arguments passats per línia de comanda</p></div>
+    mock_parse_args: Mock dels arguments passats per línia de comanda.
+Returns:
+    None.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -374,8 +376,8 @@ Args:
   </a>
   <div class="functionHeader">
     
-    <div><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.argparse.ArgumentParser.parse_args</span><span class="rst-variable-quote">'</span>)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.os.path.isfile</span><span class="rst-variable-quote">'</span>, <wbr></wbr>return_value=False)<br /></span><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.os.path.exists</span><span class="rst-variable-quote">'</span>, <wbr></wbr>return_value=False)<br /></span></div>
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">test_invalid_file_path</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">mock_exists, </span><span class="rst-sig-param">mock_isfile, </span><span class="rst-sig-param">mock_parse_args</span>):</span>
+    <div><span class="decorator">@patch(<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">src.execution.main.argparse.ArgumentParser.parse_args</span><span class="rst-variable-quote">'</span>)<br /></span></div>
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">test_invalid_file_path</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span>, </span><span class="rst-sig-param">mock_parse_args</span>):</span>
     
     <a class="headerLink" href="#test_invalid_file_path" title="tests.execution.test_main.TestMain.test_invalid_file_path">
       
@@ -387,10 +389,10 @@ Args:
     
     <div><p class="pre">Test de la funció main() quan se li passa un fitxer invàlid amb l'argument -file.
 
-Args: 
-     mock_exists: Mock de os.path.exists per controlar l'existència del fitxer.
-     mock_isfile: Mock de os.path.isfile per controlar si és un fitxer.
-     mock_parse_args: Mock de parse_args per simular els arguments de línia de comanda.</p></div>
+Args:
+     mock_parse_args: Mock de parse_args per simular els arguments de línia de comanda.
+Returns:
+    None.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -416,8 +418,9 @@ Args:
     
     <div><p class="pre">Test de la funció main() sense passar arguments per línia de comanda.
 
-Aquest test comprova que, quan no es passen arguments es criden tots els exercicis en ordre ascendent. Es
-simulen les funcions dels exercisis i al final es comprova el sys.exit(0), indicant final correcte d'execució.
+Aquest test comprova que, quan no es passen arguments es criden tots els exercicis
+en ordre ascendent. Es simulen les funcions dels exercisis i al final es comprova
+el sys.exit(0), indicant final correcte d'execució.
 
 Args:
      mock_exit: Mock de sys.exit per evitar sortir del test realment.
@@ -425,7 +428,9 @@ Args:
      mock_ex3: Mock de la funció exercise_3.
      mock_ex2: Mock de la funció exercise_2.
      mock_ex1: Mock de la funció exercise_1.
-     mock_parse_args: Mock de parse_args per simular els arguments de línia de comanda.</p></div>
+     mock_parse_args: Mock de parse_args per simular els arguments de línia de comanda.
+Returns:
+    None.</p></div>
   </div>
 </div><div class="basemethod">
   
@@ -458,7 +463,8 @@ Args:
      mock_ex2: Mock de la funció exercise_2.
      mock_ex1: Mock de la funció exercise_1.
      mock_parse_args: Mock de parse_args per simular els arguments de línia de comanda.
-:return: </p></div>
+Returns:
+    None.</p></div>
   </div>
 </div>
         </div>
@@ -472,7 +478,7 @@ Args:
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for PCD_PAC4 - Francesc Ferré Tarrés,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-01-06 20:04:15.
+    25.10.1 at 2026-01-07 20:42:51.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

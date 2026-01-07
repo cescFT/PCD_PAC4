@@ -6,8 +6,6 @@ import unittest
 from tests.execution.test_main import TestMain
 
 if __name__ == "__main__":
-    """
-    """
     suite = unittest.TestSuite()
 
     # Carrega els tests de cada classe

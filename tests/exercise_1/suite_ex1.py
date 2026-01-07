@@ -6,13 +6,9 @@ import unittest
 from tests.exercise_1.test_exercise_1 import TestReadFile, TestExploreDataframe, TestExercise1
 
 if __name__ == "__main__":
-    """
-    Càrrega dels elements de testeig de l'exercici 1
-    """
-
     suite = unittest.TestSuite()
 
-    # Carrega els tests de cada classe
+    # Carrega els tests de cada classe de test de l'exercici 1
     suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(TestReadFile))
     suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(TestExploreDataframe))
     suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(TestExercise1))
