@@ -1,4 +1,4 @@
-# Pràctica d'Evaluació Contínua 4: Programació per a la ciència de dades
+# Pràctica d'Avaluació Contínua 4: Programació per a la ciència de dades
 
 Francesc Ferré Tarrés
 
@@ -9,6 +9,19 @@ Màster Universitari en Ciències de Dades
 * **data/**: Conté els fitxers de la PAC4 a ser processats.
 * **doc/**: Conté la documentació creada a través dels *docstrings* del codi.
 * **screenshots/**: Conté les captures de pantalla com a evidències de cada apartat.
+  * **screenshots/Creant_executable_pel_setup_py**: Captures de pantalla referents a l'execució de l'executable 
+  creat a través del setup.py.
+  * **screenshots/ex1**: Captures de pantalla referents a l'exercici 1 + test i coverage.
+  * **screenshots/ex2**: Conté subcarpetes mostrant com carrega les dades necessaries per a funcionar en funció del
+  fitxer carregat en l'exercici 1 i el coverage + test.
+  * **screenshots/ex3**: Captures de pantalla referents a l'exercici 3 + test i coverage. 
+  * **screenshots/ex4**: Captures de pantalla referents a l'exercici 4 + test i coverage.
+  * **screenshots/main**: Conté captures de pantalla que tenen a veure amb l'execució del main i el seu correcte
+  funcionament esperat.
+  * **screenshots/PEP8**: Conté captures de pantalla com a evidència que es compleix el PEP8, tant en el testing
+  com en el src.
+  * **screenshots/virtualenv**: Conté evidència a través d'una captura de pantalla mostrant com creo l'entorn virutal
+  per a poder implementar el codi de la PAC4.
 * **src/**: Conté els paquets creats per a solucionar la pràctica.
     * **src/execution/**: Conté el `main.py` el qual permet passar-li arguments, tal com s'anomena en l'enunciat.
     * **src/img/**: Conté la imatge del gràfic creat com a resposta en l'exercici 3. Si no està creada la carpeta,
@@ -17,7 +30,13 @@ Màster Universitari en Ciències de Dades
     resposta a l'exercici corresponent.
     * **src/report/**: Conté el JSON creat com a resposta de l'exercici 4. Si no existeix, el codi la crearà, jutament
     amb el JSON.
-* **tests/**: Conté subpaquets, un per cada exercici amb cada suite i classes de test.
+  * **tests/**: Conté subpaquets, un per cada exercici amb cada suite i classes de test, juntament també amb un paquet
+  específic pel main.
+    * **tests/execution**: Conté test del main + suite per executar-lo.
+    * **tests/exercise_1**: Conté test de l'exercici 1 + suite per executar-lo.
+    * **tests/exercise_2**: Conté test de l'exercici 2 + suite per executar-lo.
+    * **tests/exercise_3**: Conté test de l'exercici 3 + suite per executar-lo.
+    * **tests/exercise_4**: Conté test de l'exercici 4 + suite per executar-lo.
 
 Finalment, en el root del projecte hi trobem els fitxers que es demanen en la PAC:
 * **.pylintrc**: Permet configurar el paquet *pylint*, el qual retorna si es compleix el PEP8.
@@ -43,7 +62,7 @@ cd PCD_PAC4
 
 *Nota: D'ara en endavant, s'assumeix que l'usuari està en aquesta carpeta.*
 
-el que hem de fer és crear un entorn virtual, a través de la comanda:
+El que hem de fer és crear un entorn virtual, a través de la comanda:
 
 ```shell
 virtualenv <nom_entorn_virtual>
@@ -172,6 +191,12 @@ I el fitxer `.pylintrc` ha estat generat a través de la comanda (powershell de 
 
 ```shell
 pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
+```
+
+Per tal de comprovar el PEP8 en els tests, cal executar la següent comanda:
+
+```shell
+pylint tests/
 ```
 
 # Execució projecte com a programa de CLI - Producció
@@ -366,7 +391,3 @@ en un apartat del README.
 * https://docs.python.org/3/library/unittest.mock.html#mock-open
 * https://stackoverflow.com/questions/15763394/mocking-two-functions-with-patch-for-a-unit-test
 * https://www.youtube.com/watch?v=GaWs-LenLYE
-
-
-TODOs:
-* Revisar que al README estigui tot ok
