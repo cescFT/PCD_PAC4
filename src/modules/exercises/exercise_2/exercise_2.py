@@ -32,11 +32,16 @@ def exercise_2(df: pd.DataFrame) -> pd.DataFrame:
     # En aquest snippet de codi el que fem és llegir el document contrari que ha escollit l'usuari
     # per a poder fer el merge final.
     if "rendiment_estudiants.xlsx" in df.source_file:
-        df_abandonment_tax = pd.read_excel("data/taxa_abandonament.xlsx")
+        path_file_to_read = "data/taxa_abandonament.xlsx"
+        df_abandonment_tax = pd.read_excel(path_file_to_read)
         df_performance_students = df
     else:
+        path_file_to_read = "data/rendiment_estudiants.xlsx"
         df_abandonment_tax = df
-        df_performance_students = pd.read_excel("data/rendiment_estudiants.xlsx")
+        df_performance_students = pd.read_excel(path_file_to_read)
+
+    print(f"Carreguem el document {path_file_to_read} perquè ja hem carregat"
+          f" el document {df.source_file} en l'anterior exercici.")
 
     # Renombrar les columnes d'acord amb el que s'estableix a l'enunciat
     old_columns = df_abandonment_tax.columns.tolist()
@@ -60,13 +65,24 @@ def exercise_2(df: pd.DataFrame) -> pd.DataFrame:
         new_columns
     )
 
+    print("Columnes del dataframe de la taxa d'abandonament reanomenades:\n")
+    print(df_abandonment_tax.columns)
+    print("\n")
+
+
     # Eliminació de les columnes, d'acord amb l'enunciat.
     cols_to_delete = ["Universitat", "Unitat"]
     df_abandonment_tax = delete_columns(df_abandonment_tax, cols_to_delete)
 
+    print(f"Eliminació de les columnes {cols_to_delete}"
+          f" del dataframe d'abandonament escolar\n")
+
     cols_to_delete.append("Crèdits ordinaris superats")
     cols_to_delete.append("Crèdits ordinaris matriculats")
     df_performance_students = delete_columns(df_performance_students, cols_to_delete)
+
+    print(f"Eliminació de les columnes {cols_to_delete}"
+          f" del dataframe de la taxa de rendiment escolar.\n")
 
     cols = []
     for col in df_abandonment_tax.columns:
@@ -76,6 +92,8 @@ def exercise_2(df: pd.DataFrame) -> pd.DataFrame:
         if col in df_performance_students.columns:
             cols.append(col)
 
+    print(f"Columnes a agrupar: {cols}\n")
+
     # Agrupació dels dataframes d'acord amb l'enunciat de la pràctica
     df_grouped_abandonment = group_dataframe(
         df_abandonment_tax,
@@ -83,11 +101,19 @@ def exercise_2(df: pd.DataFrame) -> pd.DataFrame:
         "% Abandonament a primer curs"
     )
 
+    print("Dataframe de la taxa d'abandonament agrupat per les columnes:\n")
+    print(df_grouped_abandonment)
+    print("\n")
+
     df_grouped_performance = group_dataframe(
         df_performance_students,
         cols,
         "Taxa rendiment"
     )
+
+    print("Dataframe del rendiment agrupat per les columnes:\n")
+    print(df_grouped_performance)
+    print("\n")
 
     # Retornem el dataframe ajuntat d'acord amb l'enunciat de la pràctica
     df_merged = merge_dataframes(df_grouped_abandonment, df_grouped_performance, cols)

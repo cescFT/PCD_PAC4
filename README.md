@@ -173,7 +173,6 @@ I el fitxer `.pylintrc` ha estat generat a través de la comanda (powershell de 
 pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
 ```
 
-
 # Execució projecte com a programa de CLI - Producció
 
 Per tal d'assolir l'expertesa i un desplegament de l'aplicació creada, he generat el fitxer `setup.py`, el qual
@@ -186,8 +185,27 @@ Així doncs, per aconseguir aquest executable, executarem a l'arrel del projecte
 pip install .
 ```
 
-Quan aquest hagi acabat, en principi generarà l'executable `PCD_PAC4-cli`, el qual es pot executar per terminal, i que
-admet els arguments `-h` i `-ex <num_ex>` anteriorment descrits.
+Quan aquest hagi acabat, en principi generarà l'executable `PCD_PAC4-cli`, el qual es pot executar per terminal,
+en l'arrel del projecte, i que admet els arguments `-h` i `-ex <num_ex>` anteriorment descrits.
+
+Així doncs, la comanda preparada per ser executada en l'arrel del projecte és la següent:
+
+```shell
+PCD_PAC4-cli
+```
+
+
+# Galeria d'imatges com a joc de proves
+
+## Exercici 1
+
+![Exercici 1: Demanem fitxer](screenshots/ex1/ex1_execucio_demanem_fitxer.png)
+
+![Exercici 1: Passem fitxer per paràmetre](screenshots/ex1/ex1_execucio_passem_fitxer_per_parametre.png)
+
+![Exercici 1: Tests](screenshots/ex1/test_suite_ex1.png)
+
+![Exercici 1: Coverage](screenshots/ex1/coverage_ex1.png)
 
 
 # Referències web per a realitzar la pràctica
