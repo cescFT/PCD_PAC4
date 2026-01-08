@@ -63,6 +63,10 @@ Finalment, en el root del projecte hi trobem els fitxers que es demanen en la PA
 
 # Desenvolupament del projecte en entorn virtual
 
+**NOTA IMPORTANT: Totes les comandes han estat realitzades en un terminal de PowerShell, en un windows**.
+Així doncs, el correcte funcionament d'aquestes comandes han estat validades en aquest entorn de desenvolupament.
+Només per a tenir-ho en compte.
+
 Aquest projecte ha estat desenvolupat a través d'un entorn virtual. Per a crear un entorn virutal, cal primer instal·lar
 el paquet `virtualenv` en la màquina on volem executar aquest programa.
 
