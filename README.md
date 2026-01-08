@@ -4,6 +4,15 @@ Francesc Ferré Tarrés
 
 Màster Universitari en Ciències de Dades
 
+# Implementació de la pràctica emprant control de versions i repositori GIT
+
+Per tal de realitzar aquesta pràctica i evitar problemes i poder fer *rollbacks* en el codi, he usat el control de
+versions que GIT proporciona tot creant un repositori en el meu GitHub personal. 
+La url del projecte és https://github.com/cescFT/PCD_PAC4
+
+Tal com es pot observar, he intentat crear branques específiques per a realitzar les diferents parts del codi, tenint
+una visió incremental d'aquest, com si fos una ceba tot tenint múltiples capes fins arribar a construir tot el programa.
+
 # Estructures de les carpetes i fitxers
 
 * **data/**: Conté els fitxers de la PAC4 a ser processats.
@@ -28,6 +37,10 @@ Màster Universitari en Ciències de Dades
     el codi la crearà.
     * **src/modules/exercises**: Conté subpaquets, un per cada exercici, a més dels mòduls auxiliars creats per a donar
     resposta a l'exercici corresponent.
+      * **src/modules/exercises/exercise_1**: Conté el mòdul executable de l'exercici 1 i mòduls auxiliars.
+      * **src/modules/exercises/exercise_2**: Conté el mòdul executable de l'exercici 2 i mòduls auxiliars.
+      * **src/modules/exercises/exercise_3**: Conté el mòdul executable de l'exercici 3 i mòduls auxiliars.
+      * **src/modules/exercises/exercise_4**: Conté el mòdul executable de l'exercici 4 i mòduls auxiliars.
     * **src/report/**: Conté el JSON creat com a resposta de l'exercici 4. Si no existeix, el codi la crearà, jutament
     amb el JSON.
   * **tests/**: Conté subpaquets, un per cada exercici amb cada suite i classes de test, juntament també amb un paquet
@@ -101,6 +114,7 @@ Hi permet el pas d'arguments, els quals són:
 * **-h**: Mostra ajuda.
 * **-ex <num_ex>**: El que fa és executar tots els exercici de l'1 al `<num_ex>`, atès que són exercicis progressius.
     * *Nota: Si no se li passa aquest paràmetre, per defecte, executarà tots 4 exercicis*
+    * *Nota: Si se li passa un valor no vàlid, retorna un error indicant que necessita un exercici vàlid*
 
 Finalment, si desitgem desactivar l'entorn, utilitzarem la comanda:
 
@@ -110,7 +124,7 @@ deactivate
 
 ## Execució dels tests
 
-Per tal d'executar els tests, necessitem accedir en l'entorn virutal `<nom_entorn_virtual>`, i la comanda per
+Per tal d'executar els tests, necessitem accedir en l'entorn virtual `<nom_entorn_virtual>`, i la comanda per
 executar els tests serà:
 
 ```shell
@@ -359,6 +373,10 @@ PCD_PAC4-cli
 ![Exemple execució amb la comanda i el parametre ex](screenshots/Creant_executable_pel_setup_py/exemple_funcionament_senzill_(1).png)
 
 *Exemple d'execució a través de la comanda amb el paràmetre -ex*
+
+## Generació de la documentació
+
+![Generant documentacio](screenshots/Generant_doc/doc_generada.png)
 
 # Referències web per a realitzar la pràctica
 

@@ -25,6 +25,9 @@ class TestExercise4(unittest.TestCase):
     Classe de tests de l'exercici 4 que testeja tots els submòduls que es criden en aquest exercici
     """
 
+    sample_merged_df: pd.DataFrame
+    """DataFrame senzill de test utilitzat en tots els tests."""
+
     def setUp(self) -> None:
         """
         Inicialització d'un DataFrame senzill que serà vàlid per a totes les
