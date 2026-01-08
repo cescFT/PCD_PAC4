@@ -11,7 +11,9 @@ versions que GIT proporciona tot creant un repositori en el meu GitHub personal.
 La url del projecte és https://github.com/cescFT/PCD_PAC4
 
 Tal com es pot observar, he intentat crear branques específiques per a realitzar les diferents parts del codi, tenint
-una visió incremental d'aquest, com si fos una ceba tot tenint múltiples capes fins arribar a construir tot el programa.
+una visió incremental d'aquest, com si fos una ceba tot tenint múltiples capes fins arribar a construir tota la pràctica.
+
+L'IDE el qual he utilitzat per a la realització d'aquesta pràctica és el PyCharm.
 
 # Estructures de les carpetes i fitxers
 
