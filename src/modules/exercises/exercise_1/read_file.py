@@ -49,7 +49,7 @@ def read_file(file_path: str = "") -> pd.DataFrame:
 
             try:
                 file_to_read = int(file_to_read)
-                if file_to_read > 2:
+                if file_to_read < 1 or file_to_read > 2:
                     raise ValueError
                 file_to_read_is_valid = True
             except ValueError:
