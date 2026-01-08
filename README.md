@@ -160,7 +160,7 @@ a través de la comanda:
 pip install coverage
 ```
 
-Per tal de calcular el coverage, la comanda que s'ha d'executar és:
+Per tal de calcular el coverage, el qual es calcularà per cada exercici, la comanda que s'ha d'executar és:
 
 ```shell
 coverage run -m tests.exercise_<x>.suite_ex<x>
