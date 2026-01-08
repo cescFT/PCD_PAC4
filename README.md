@@ -93,6 +93,10 @@ Llavors, en un entorn Windows, per accedir a l'entorn, cal executar l'script seg
 .\<nom_entorn_virtual>\Scripts\activate.ps1
 ```
 
+*Nota: Si al executar aquesta comanda retorna un error, llavors provar d'executar la comanda `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+` la qual donarà permisos en el terminal de powershell actual per a poder executar scripts. Un cop executada la comanda,
+torneu a provar la comanda per a accedir a l'entorn.*
+
 D'acord amb la documentació de la teoria, en principi en un Linux, la comanda seria:
 
 ```shell
