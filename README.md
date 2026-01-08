@@ -25,6 +25,7 @@ una visió incremental d'aquest, com si fos una ceba tot tenint múltiples capes
   fitxer carregat en l'exercici 1 i el coverage + test.
   * **screenshots/ex3**: Captures de pantalla referents a l'exercici 3 + test i coverage. 
   * **screenshots/ex4**: Captures de pantalla referents a l'exercici 4 + test i coverage.
+  * **screenshots/Generant_doc/**: Captura de pantalla mostrant com es genera la documentació emprant pydoctor.
   * **screenshots/main**: Conté captures de pantalla que tenen a veure amb l'execució del main i el seu correcte
   funcionament esperat.
   * **screenshots/PEP8**: Conté captures de pantalla com a evidència que es compleix el PEP8, tant en el testing
@@ -52,6 +53,8 @@ una visió incremental d'aquest, com si fos una ceba tot tenint múltiples capes
     * **tests/exercise_4**: Conté test de l'exercici 4 + suite per executar-lo.
 
 Finalment, en el root del projecte hi trobem els fitxers que es demanen en la PAC:
+* **.gitignore**: Fitxer que permet configurar al GIT fitxers / directoris que no volem que en el moment de fer el
+ *git add .* i el posterior *git commit -m "x"* agafi i quedin en el repositori GIT.
 * **.pylintrc**: Permet configurar el paquet *pylint*, el qual retorna si es compleix el PEP8.
 * **LICENSE**: Fitxer de llicència GPL-3.0 license.
 * **README.md**: Aquest mateix fitxer, el qual dóna detalls sobre l'estructura i com executar el projecte.
@@ -61,7 +64,7 @@ Finalment, en el root del projecte hi trobem els fitxers que es demanen en la PA
 # Desenvolupament del projecte en entorn virtual
 
 Aquest projecte ha estat desenvolupat a través d'un entorn virtual. Per a crear un entorn virutal, cal primer instal·lar
-el paquet `virtualenv`.
+el paquet `virtualenv` en la màquina on volem executar aquest programa.
 
 ```shell
 pip install virtualenv
@@ -206,6 +209,9 @@ I el fitxer `.pylintrc` ha estat generat a través de la comanda (powershell de 
 ```shell
 pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
 ```
+
+*Nota: No cal tornar-lo a generar, aquesta comanda està aquí a mode de documentació per tal de mostrar com
+l'he generat*
 
 Per tal de comprovar el PEP8 en els tests, cal executar la següent comanda:
 
