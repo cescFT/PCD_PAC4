@@ -70,7 +70,7 @@ el paquet `virtualenv` en la màquina on volem executar aquest programa.
 pip install virtualenv
 ```
 
-Un cop està instal·lat aquest paquet, situeu-vos dins de la carpeta del projecte:
+Un cop està instal·lat aquest paquet, situeu-vos dins de la carpeta del projecte (si ja hi sou, no cal que ho feu):
 
 ```shell
 cd PCD_PAC4
