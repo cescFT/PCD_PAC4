@@ -122,6 +122,7 @@ python3 -m src.execution.main
 
 Hi permet el pas d'arguments, els quals són:
 
+* **-file**: Permet passar-li un fitxer a llegir vàlid (comprova que existeixi abans d'executar el programa).
 * **-h**: Mostra ajuda.
 * **-ex <num_ex>**: El que fa és executar tots els exercici de l'1 al `<num_ex>`, atès que són exercicis progressius.
     * *Nota: Si no se li passa aquest paràmetre, per defecte, executarà tots 4 exercicis*
@@ -233,7 +234,9 @@ Per tal d'assolir l'expertesa i un desplegament de l'aplicació creada, he gener
 instal·la dependències, detecta els paquets personalitzats de la pràctica i acaba generant un executable, anomenat
 `PCD_PAC4-cli`.
 
-Així doncs, per aconseguir aquest executable, executarem a l'arrel del projecte la comanda
+Així doncs, si estem en l'entorn virtual, sortirem amb la comanda anteriorment descrita per a sortir de l'entorn
+(recordem que es la comanda `deactivate`). Un cop fora de l'entorn virtual, per aconseguir l'executable,
+executarem a l'arrel del projecte la comanda:
 
 ```shell
 pip install .
@@ -247,6 +250,9 @@ Així doncs, la comanda preparada per ser executada en l'arrel del projecte és 
 ```shell
 PCD_PAC4-cli
 ```
+
+La qual presenta les mateixes caracteristiques que la comanda que executavem dins de l'entorn virtual, la qual recordem
+que era `python3 -m src.execution.main`. Això vol dir que admet els arguments **-h**, **-file** i **-ex**.
 
 # Galeria d'imatges com a joc de proves
 
